@@ -1,48 +1,9 @@
 Rails.application.routes.draw do
-  get 'songs/index'
+  root to: 'pages#index'
 
-  get 'songs/show'
+  get 'pages/index', to: 'pages#index'
 
-  get 'songs/new'
-
-  get 'songs/create'
-
-  get 'songs/edit'
-
-  get 'songs/update'
-
-  get 'songs/destroy'
-
-  get 'movies/index'
-
-  get 'movies/show'
-
-  get 'movies/new'
-
-  get 'movies/create'
-
-  get 'movies/edit'
-
-  get 'movies/update'
-
-  get 'movies/destroy'
-
-  get 'books/index'
-
-  get 'books/show'
-
-  get 'books/new'
-
-  get 'books/create'
-
-  get 'books/edit'
-
-  get 'books/update'
-
-  get 'books/destroy'
-
-  get 'pages/index'
-
+  resources :books, :movies, :songs
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
