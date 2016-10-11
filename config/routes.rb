@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get 'albums/index'
 
-  get 'albums/show'
+  get 'albums/show/:id' => 'albums#show', as: 'albums_show'
+
+  patch 'albums/upvote/:id' => 'albums#upvote'
 
   get 'albums/edit'
 
