@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+section.top-ten {
+  display: inline-block;
+  width: 30vw;
+}
