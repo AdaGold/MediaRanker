@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'albums/edit/:id' => 'albums#edit', as: 'albums_edit'
 
-  get 'albums/update'
+  put 'albums/update/:id' => 'albums#update', as: 'albums_update'
 
   get 'albums/new'
 

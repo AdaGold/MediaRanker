@@ -11,10 +11,16 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    album = Album.find(params[:id])
+    @object = Album.find(params[:id])
+    @method = :put
+    @path = albums_update_path(@object)
   end
 
   def update
+    object = Album.find(params[:id])
+    object.update(name: params[:album][:name],
+                  creator: params[:album][:creator],
+                  description: params[:album][:description])
   end
 
   def new
