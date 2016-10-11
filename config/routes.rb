@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   root to: 'homes#index'
 
-  get 'albums/index'
+  get 'albums/index' => 'albums#index'
 
   get 'albums/show/:id' => 'albums#show', as: 'albums_show'
 
   patch 'albums/upvote/:id' => 'albums#upvote'
 
-  get 'albums/edit'
+  get 'albums/edit/:id' => 'albums#edit', as: 'albums_edit'
 
   get 'albums/update'
 
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'albums/create'
 
-  get 'albums/destroy'
+  delete 'albums/destroy' => 'albums#destroy'
 
   get 'books/index'
 
