@@ -11,10 +11,15 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    movie = Movie.find(params[:id])
+    @object = Movie.find(params[:id])
+    @path = movies_update_path(@object)
   end
 
   def update
+    object = Movie.find(params[:id])
+    object.update(name: params[:movie][:name],
+                  creator: params[:movie][:creator],
+                  description: params[:movie][:description])
   end
 
   def new
