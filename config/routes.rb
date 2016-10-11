@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'albums/index' => 'albums#index'
 
-  get 'albums/show/:id' => 'albums#show', as: 'albums_show'
+  get 'albums/:id/show' => 'albums#show', as: 'albums_show'
 
   patch 'albums/upvote/:id' => 'albums#upvote'
 
@@ -16,13 +16,15 @@ Rails.application.routes.draw do
 
   get 'albums/create'
 
-  delete 'albums/destroy' => 'albums#destroy'
+  delete 'albums/delete' => 'albums#destroy'
 
-  get 'books/index'
+  get 'books/index' => 'books#index'
 
-  get 'books/show'
+  get 'books/:id/show' => 'books#show', as: 'books_show'
 
-  get 'books/edit'
+  get 'books/edit/:id' => 'books#edit', as: 'books_edit'
+
+  patch 'books/upvote/:id' => 'books#upvote'
 
   get 'books/update'
 
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
 
   get 'books/create'
 
-  get 'books/destroy'
+  delete 'books/delete' => 'books#destroy'
 
   get 'movies/index'
 
