@@ -1,2 +1,32 @@
-<h1>Songs#index</h1>
-<p>Find me in app/views/songs/index.html.erb</p>
+<main>
+
+  <table>
+    <tr>
+      <th>
+        Ranking
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+
+    <% @songs.each do |song| %>
+    <tr>
+      <td>
+        <%= song.score %>
+      </td>
+      <td>
+        <%= song.name %>
+      </td>
+      <td>
+        <%= button_to "Upvote", upvote_song_path(song), method: :patch %>
+      </td>
+    </tr>
+    <% end %>
+
+  </table>
+
+</main> 
