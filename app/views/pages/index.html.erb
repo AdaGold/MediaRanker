@@ -1,2 +1,27 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<main>
+
+  <section>
+    <% @movies.each do |movie| %>
+      <h3><%= link_to movie.name, movie_path(movie), method: :get %></h3>
+      <h4>Rating: <%= movie.score %></h4>
+    <% end %>
+    <a href='/movies'>View all Movies</a>
+  </section>
+
+  <section>
+    <% @books.each do |book| %>
+      <h3><%= link_to book.name, book_path(book), method: :get %></h3>
+      <h4>Rating: <%= book.score %></h4>
+    <% end %>
+    <a href='/books'>View all Books</a>
+  </section>
+
+  <section>
+    <% @albums.each do |album| %>
+      <h3><%= link_to album.name, album_path(album), method: :get %></h3>
+      <h4>Rating: <%= album.score %></h4>
+    <% end %>
+    <a href='/albums'>View all Albums</a>
+  </section>
+
+</main>
