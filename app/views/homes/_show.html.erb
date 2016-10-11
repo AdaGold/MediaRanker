@@ -1,0 +1,14 @@
+
+<h2><%= @name %></h2>
+<h4>Votes: <%= @votes %></h4>
+<h5>Created by: <%= @creator %></h5>
+
+<p>
+  <%= @description %>
+</p>
+
+<%= button_to("Upvote", {action: "upvote"}, {method: :patch}) %>
+<button>Edit</button>
+<button>delete</button>
+<button>View all of this enitity</button>
+<%= button_to("View all Media", "/", method: :get ) %>
