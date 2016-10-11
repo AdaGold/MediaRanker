@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+require 'csv'
+
+CSV.foreach('seed_csvs/albums.csv', :headers => false) do |song|
+  Song.create(name: song[0], auteur: 'Beyonce')
+end
+
+CSV.foreach('seed_csvs/books.csv', :headers => false) do |book|
+  Book.create(name: book[0], auteur: 'Dr. Seuss')
+end
+
+CSV.foreach('seed_csvs/movies.csv', :headers => false) do |movie|
+  Movie.create(name: movie[0], auteur: 'Alfred Hitchcock')
+end
