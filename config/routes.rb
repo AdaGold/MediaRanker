@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'pages/index', to: 'pages#index'
 
   patch 'books/:id/upvote', to: 'books#upvote', as: 'upvote_book'
+  patch 'movies/:id/upvote', to: 'movies#upvote', as: 'upvote_movie'
+  patch 'songs/:id/upvote', to: 'songs#upvote', as: 'upvote_song'
 
   resources :books, :movies, :songs
   # The priority is based upon order of creation: first created -> highest priority.
