@@ -34,11 +34,13 @@ Rails.application.routes.draw do
 
   delete 'books/delete' => 'books#destroy'
 
-  get 'movies/index'
+  get 'movies/index' => 'movies#index'
 
-  get 'movies/show'
+  get 'movies/:id/show' => 'movies#show', as: 'movies_show'
 
-  get 'movies/edit'
+  get 'movies/edit/:id' => 'movies#edit', as: 'movies_edit'
+
+  patch 'movies/upvote/:id' => 'movies#upvote'
 
   get 'movies/update'
 
@@ -46,7 +48,7 @@ Rails.application.routes.draw do
 
   get 'movies/create'
 
-  get 'movies/destroy'
+  delete 'movies/delete' => 'movies#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
