@@ -1,0 +1,25 @@
+<%= form_for @object, method: @method, url: @path  do |form| %>
+  <p>
+    <%= form.label :name %>
+  </p>
+  <p>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :creator %>
+  </p>
+  <p>
+    <%= form.text_field :creator %>
+  </p>
+
+  <p>
+    <%= form.label :description %>
+  </p>
+  <p>   
+    <%= form.text_area :description, {rows: 15, cols: 25} %>
+  </p>
+
+
+  <%= form.submit %>
+<% end %>

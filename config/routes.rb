@@ -2,25 +2,29 @@ Rails.application.routes.draw do
 
   root to: 'homes#index'
 
-  get 'albums/index'
+  get 'albums/index' => 'albums#index'
 
-  get 'albums/show'
+  get 'albums/:id/show' => 'albums#show', as: 'albums_show'
 
-  get 'albums/edit'
+  patch 'albums/upvote/:id' => 'albums#upvote'
 
-  get 'albums/update'
+  get 'albums/edit/:id' => 'albums#edit', as: 'albums_edit'
+
+  put 'albums/update/:id' => 'albums#update', as: 'albums_update'
 
   get 'albums/new'
 
   get 'albums/create'
 
-  get 'albums/destroy'
+  delete 'albums/delete' => 'albums#destroy'
 
-  get 'books/index'
+  get 'books/index' => 'books#index'
 
-  get 'books/show'
+  get 'books/:id/show' => 'books#show', as: 'books_show'
 
-  get 'books/edit'
+  get 'books/edit/:id' => 'books#edit', as: 'books_edit'
+
+  patch 'books/upvote/:id' => 'books#upvote'
 
   get 'books/update'
 
@@ -28,13 +32,15 @@ Rails.application.routes.draw do
 
   get 'books/create'
 
-  get 'books/destroy'
+  delete 'books/delete' => 'books#destroy'
 
-  get 'movies/index'
+  get 'movies/index' => 'movies#index'
 
-  get 'movies/show'
+  get 'movies/:id/show' => 'movies#show', as: 'movies_show'
 
-  get 'movies/edit'
+  get 'movies/edit/:id' => 'movies#edit', as: 'movies_edit'
+
+  patch 'movies/upvote/:id' => 'movies#upvote'
 
   get 'movies/update'
 
@@ -42,7 +48,7 @@ Rails.application.routes.draw do
 
   get 'movies/create'
 
-  get 'movies/destroy'
+  delete 'movies/delete' => 'movies#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

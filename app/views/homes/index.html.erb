@@ -3,8 +3,9 @@
 <article>
   <h3>Top Books</h3>
   <ul>
+
     <% @books.each do |book| %>
-        <li><%= book.name %></li>
+        <li><%= "#{book.name}: #{book.votes} votes" %></li>
       </p>
     <% end %>
   </ul>
@@ -14,7 +15,7 @@
   <h3>Top Albums</h3>
   <ul>
     <% @albums.each do |album| %>
-        <li><%= album.name %></li>
+        <li><%= "#{album.name}: #{album.votes} votes" %></li>
       </p>
     <% end %>
   </ul>
@@ -24,7 +25,7 @@
   <h3>Top Movies</h3>
   <ul>
     <% @movies.each do |movie| %>
-        <li><%= movie.name %></li>
+        <li><%= "#{movie.name}: #{movie.votes} votes" %></li>
       </p>
     <% end %>
   </ul>
