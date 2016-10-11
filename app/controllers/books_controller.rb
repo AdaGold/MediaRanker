@@ -14,10 +14,15 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   def update
     @book = Book.find(params[:id])
+    @book.name = params[:book][:name]
+    @book.auteur = params[:book][:auteur]
+    @book.description = params[:book][:description]
+    @book.save
 
     redirect_to show
   end

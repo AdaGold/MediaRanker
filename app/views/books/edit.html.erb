@@ -1,2 +1,15 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<main>
+
+  <%= form_for @book, method: :put do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :auteur %>
+    <%= f.text_field :auteur %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.submit %>
+  <% end %>
+</main>
