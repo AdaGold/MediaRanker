@@ -17,11 +17,11 @@
   </section>
 
   <section>
-    <% @albums.each do |album| %>
-      <h3><%= link_to album.name, album_path(album), method: :get %></h3>
-      <h4>Rating: <%= album.score %></h4>
+    <% @songs.each do |song| %>
+      <h3><%= link_to song.name, song_path(song), method: :get %></h3>
+      <h4>Rating: <%= song.score %></h4>
     <% end %>
-    <a href='/albums'>View all Albums</a>
+    <a href='/songs'>View all Songs</a>
   </section>
 
 </main>
