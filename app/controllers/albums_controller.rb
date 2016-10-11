@@ -12,7 +12,6 @@ class AlbumsController < ApplicationController
 
   def edit
     @object = Album.find(params[:id])
-    @method = :put
     @path = albums_update_path(@object)
   end
 

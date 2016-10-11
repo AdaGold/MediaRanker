@@ -11,10 +11,15 @@ class BooksController < ApplicationController
   end
 
   def edit
-    book = Book.find(params[:id])
+    @object = Book.find(params[:id])
+    @path = books_update_path(@object)
   end
 
   def update
+    object = Book.find(params[:id])
+    object.update(name: params[:book][:name],
+                  creator: params[:book][:creator],
+                  description: params[:book][:description])
   end
 
   def new

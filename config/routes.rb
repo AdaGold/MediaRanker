@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   patch 'books/upvote/:id' => 'books#upvote'
 
-  get 'books/update'
+  put 'books/update/:id' => 'books#update', as: 'books_update'
 
   get 'books/new'
 
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   patch 'movies/upvote/:id' => 'movies#upvote'
 
-  get 'movies/update'
+  put 'movies/update/:id' => 'movies#update', as: 'movies_update'
 
   get 'movies/new'
 
