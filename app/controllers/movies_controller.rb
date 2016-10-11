@@ -14,10 +14,15 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Book.find(params[:id])
   end
 
   def update
-    @movie = Movie.find(params[:id])
+    @movie = Book.find(params[:id])
+    @movie.name = params[:movie][:name]
+    @movie.auteur = params[:movie][:auteur]
+    @movie.description = params[:movie][:description]
+    @movie.save
 
     redirect_to show
   end

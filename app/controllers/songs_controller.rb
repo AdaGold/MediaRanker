@@ -10,10 +10,18 @@ class SongsController < ApplicationController
   def new
   end
 
-  def create
+  def edit
+    @song = Book.find(params[:id])
   end
 
-  def edit
+  def update
+    @song = Book.find(params[:id])
+    @song.name = params[:song][:name]
+    @song.auteur = params[:song][:auteur]
+    @song.description = params[:song][:description]
+    @song.save
+
+    redirect_to show
   end
 
   def update
