@@ -16,18 +16,20 @@ class MoviesController < ApplicationController
     @task.director = params[:movie][:director]
     @task.description = params[:movie][:description]
 
+    @movie.save
     redirect_to root_path
   end
 
 
   def edit
-
+    @movie = Movie.find(params[:id])
 
   end
 
 
   def update
-
+    Movie.update(params[:id]), name: params[:movie][:name], params[:movie][:director], params [:movie][:description]
+    redirect_to root_path
   end
 
 
