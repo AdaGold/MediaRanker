@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :movies, :books, :albums
-  
+
   # index routes
   get 'index/index'
 
@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   # movies routes
 
-  get 'movies/index'
+  get 'movies/index' => 'movies#show', as: 'movies_show'
+
+  get 'movies/:id/show' => 'movies#show', as: 'movies_show'
 
   get 'movies/show'
 
