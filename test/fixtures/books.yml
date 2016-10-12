@@ -3,11 +3,11 @@
 one:
   name: MyString
   votes: 1
-  author: MyString
+  creator: MyString
   description: MyText
 
 two:
   name: MyString
   votes: 1
-  author: MyString
+  creator: MyString
   description: MyText

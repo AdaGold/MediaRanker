@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  votes: 1
-  artist: MyString
-  description: MyText
+the_long_way_round:
+  name: "The Long Way Round"
+  votes: 0
+  creator: "Dixie Chicks"
+  description: nil
 
-two:
-  name: MyString
-  votes: 1
-  artist: MyString
-  description: MyText
+the_voyager:
+  name: "The Voyager"
+  votes: 1000
+  creator: "Jenny Lewis"
+  description: nil
