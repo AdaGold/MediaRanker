@@ -13,6 +13,7 @@ class BooksController < ApplicationController
 
   def edit
     @object = Book.find(params[:id])
+    @method = :put
     @path = books_update_path(@object)
     @form_name = "Edit"
   end
@@ -26,6 +27,7 @@ class BooksController < ApplicationController
 
   def new
     @object = Book.new
+    @method = :post
     @path = books_create_path(@object)
     @form_name = "New"
   end

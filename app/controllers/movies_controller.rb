@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
 
   def edit
     @object = Movie.find(params[:id])
+    @method = :put
     @path = movies_update_path(@object)
     @form_name = "Edit"
   end
@@ -26,6 +27,7 @@ class MoviesController < ApplicationController
 
   def new
     @object = Movie.new
+    @method = :post
     @path = movies_create_path(@object)
     @form_name = "New"
   end

@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
 
   def edit
     @object = Album.find(params[:id])
+    @method = :put
     @path = albums_update_path(@object)
     @form_name = "Edit"
   end
@@ -26,6 +27,7 @@ class AlbumsController < ApplicationController
 
   def new
     @object = Album.new
+    @method = :post
     @path = albums_create_path(@object)
     @form_name = "New"
   end

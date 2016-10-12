@@ -1,6 +1,6 @@
 <h2> <%= "#{@form_name} #{params[:controller][0...-1]}" %></h2>
 
-<%= form_for @object, method: :put, url: @path  do |form| %>
+<%= form_for @object, method: @method, url: @path  do |form| %>
   <p>
     <%= form.label :name %>
   </p>
