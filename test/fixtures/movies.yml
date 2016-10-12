@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+batman:
+  name: "Batman"
   votes: 1
-  creator: MyString
-  description: MyString
+  creator: "i have literally no idea"
+  description: "batman does stuff"
 
-two:
-  name: MyString
+catwoman:
+  name: "Catwoman"
   votes: 1
-  creator: MyString
-  description: MyString
+  creator: "Not Halle Berry"
+  description: "Cats >>>>>>> Bats 2016"

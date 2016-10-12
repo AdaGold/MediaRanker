@@ -9,7 +9,7 @@ class AlbumTest < ActiveSupport::TestCase
 
   test 'album must have a name' do
     kanye = Album.new(votes: 12000000)
-    # assert_not(kanye.valid?, "albums need names to be valid")
+    assert_not(kanye.valid?, "albums need names to be valid")
 
     kanye.name = "Kanye"
     assert(kanye.valid?, "somehow kanye is not valid")

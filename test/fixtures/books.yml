@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  votes: 1
-  creator: MyString
-  description: MyText
+in_the_woods:
+  name: "In The Woods"
+  votes: 10
+  creator: "Tana French"
+  description: "this book is scary"
 
-two:
-  name: MyString
-  votes: 1
-  creator: MyString
-  description: MyText
+dreams:
+  name: "Dreams of My Father"
+  votes: 34
+  creator: "Barack Obama"
+  description: "Obama u cool "
