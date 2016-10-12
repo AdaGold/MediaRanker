@@ -4,7 +4,9 @@ class MediaController < ApplicationController
   # GET /media
   # GET /media.json
   def index
-    @media = Medium.all
+    @books = Medium.where(category: "Book")
+    @movies = Medium.where(category: "Movie")
+    @songs = Medium.where(category: "Song")
   end
 
   # GET /media/1

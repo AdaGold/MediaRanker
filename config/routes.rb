@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :media
-  root to: 'pages#index'
+  root to: 'media#index'
 
   get 'pages/index', to: 'pages#index'
 
@@ -8,7 +7,7 @@ Rails.application.routes.draw do
   patch 'movies/:id/upvote', to: 'movies#upvote', as: 'upvote_movie'
   patch 'songs/:id/upvote', to: 'songs#upvote', as: 'upvote_song'
 
-  resources :books, :movies, :songs
+  resources :books, :movies, :songs, :media
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
