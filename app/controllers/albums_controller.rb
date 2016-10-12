@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   def index
+    @items = Album.order('votes DESC')
   end
 
   def show
@@ -13,6 +14,7 @@ class AlbumsController < ApplicationController
   def edit
     @object = Album.find(params[:id])
     @path = albums_update_path(@object)
+    @form_name = "Edit"
   end
 
   def update
@@ -23,6 +25,9 @@ class AlbumsController < ApplicationController
   end
 
   def new
+    @object = Album.new
+    @path = albums_create_path(@object)
+    @form_name = "New"
   end
 
   def create

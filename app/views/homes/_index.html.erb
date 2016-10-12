@@ -1,0 +1,13 @@
+<h2><%= "All #{params[:controller]}" %></h2>
+
+
+<%= button_to("View all media", "/", {method: :get} ) %>
+<%= button_to("New #{params[:controller][0..-2]}", {controller: params[:controller], action: "new"}, {method: :get}) %>
+
+
+<ul>
+  <% @items.each do |item| %>
+      <li><%= link_to("#{item.name}", {controller: params[:controller], action: "show", id: item })%><%= ": #{item.votes} votes" %><%= button_to("Upvote", {action: "upvote", id: item}, {method: :patch}) %></li>
+    </p>
+  <% end %>
+</ul>

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   put 'books/update/:id' => 'books#update', as: 'books_update'
 
-  get 'books/new'
+  get 'books/new' => 'books#new'
 
   get 'books/create'
 

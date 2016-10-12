@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+    @items = Movie.order('votes DESC')
   end
 
   def show
@@ -13,6 +14,7 @@ class MoviesController < ApplicationController
   def edit
     @object = Movie.find(params[:id])
     @path = movies_update_path(@object)
+    @form_name = "Edit"
   end
 
   def update
@@ -23,6 +25,9 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @object = Movie.new
+    @path = movies_create_path(@object)
+    @form_name = "New"
   end
 
   def create

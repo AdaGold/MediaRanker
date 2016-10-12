@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def index
+    @items = Book.order('votes DESC')
   end
 
   def show
@@ -13,6 +14,7 @@ class BooksController < ApplicationController
   def edit
     @object = Book.find(params[:id])
     @path = books_update_path(@object)
+    @form_name = "Edit"
   end
 
   def update
@@ -23,6 +25,9 @@ class BooksController < ApplicationController
   end
 
   def new
+    @object = Book.new
+    @path = books_create_path(@object)
+    @form_name = "New"
   end
 
   def create
