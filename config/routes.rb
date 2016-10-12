@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :media
   root to: 'pages#index'
 
   get 'pages/index', to: 'pages#index'
