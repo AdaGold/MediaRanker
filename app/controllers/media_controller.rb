@@ -4,11 +4,10 @@ class MediaController < ApplicationController
   # GET /media
   # GET /media.json
   def index
-    @books = Medium.where(category: "Book")
-    @movies = Medium.where(category: "Movie")
-    @songs = Medium.where(category: "Song")
+    @books = Medium.where(category: "Book").order(score: :desc).limit(10)
+    @movies = Medium.where(category: "Movie").order(score: :desc).limit(10)
+    @songs = Medium.where(category: "Song").order(score: :desc).limit(10)
   end
-
 
   # Individual index pages by topic
   def books
