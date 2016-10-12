@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
   post 'movies/create' => 'movies#create'
 
-  delete 'movies/delete' => 'movies#destroy'
+  delete 'movies/delete/:id' => 'movies#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

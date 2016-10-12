@@ -1,4 +1,4 @@
-<h2> <%= "#{@form_name} #{params[:controller][0...-1]}" %></h2>
+<h2> <%= "#{@form_name} #{params[:controller][0..-2]}" %></h2>
 
 <%= form_for @object, method: @method, url: @path  do |form| %>
   <p>

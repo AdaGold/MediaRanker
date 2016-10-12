@@ -23,6 +23,7 @@ class MoviesController < ApplicationController
     object.update(name: params[:movie][:name],
                   creator: params[:movie][:creator],
                   description: params[:movie][:description])
+    redirect_to movies_show_path(object.id)
   end
 
   def new
@@ -33,9 +34,18 @@ class MoviesController < ApplicationController
   end
 
   def create
+    object = Movie.new(name: params[:movie][:name],
+                  creator: params[:movie][:creator],
+                  description: params[:movie][:description],
+                  votes: 0)
+    object.save
+    redirect_to movies_show_path(object.id)
   end
 
   def destroy
+    object = Movie.find(params[:id])
+    object.destroy
+    redirect_to movies_index_path
   end
 
   def upvote

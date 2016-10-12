@@ -23,6 +23,7 @@ class BooksController < ApplicationController
     object.update(name: params[:book][:name],
                   creator: params[:book][:creator],
                   description: params[:book][:description])
+    redirect_to books_show_path(object.id)
   end
 
   def new
@@ -33,9 +34,18 @@ class BooksController < ApplicationController
   end
 
   def create
+    object = Book.new(name: params[:book][:name],
+                  creator: params[:book][:creator],
+                  description: params[:book][:description],
+                  votes: 0)
+    object.save
+    redirect_to books_show_path(object.id)
   end
 
   def destroy
+    object = Book.find(params[:id])
+    object.destroy
+    redirect_to books_index_path
   end
 
   def upvote

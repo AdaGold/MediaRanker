@@ -23,6 +23,7 @@ class AlbumsController < ApplicationController
     object.update(name: params[:album][:name],
                   creator: params[:album][:creator],
                   description: params[:album][:description])
+    redirect_to albums_show_path(object.id)
   end
 
   def new
@@ -33,9 +34,18 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    object = Album.new(name: params[:album][:name],
+                  creator: params[:album][:creator],
+                  description: params[:album][:description],
+                  votes: 0)
+    object.save
+    redirect_to albums_show_path(object.id)
   end
 
   def destroy
+    object = Album.find(params[:id])
+    object.destroy
+    redirect_to albums_index_path
   end
 
   def upvote
