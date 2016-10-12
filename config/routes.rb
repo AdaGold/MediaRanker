@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'albums/new'
 
-  get 'albums/create'
+  post 'albums/create' => 'albums#create'
 
   delete 'albums/delete' => 'albums#destroy'
 
@@ -28,9 +28,9 @@ Rails.application.routes.draw do
 
   put 'books/update/:id' => 'books#update', as: 'books_update'
 
-  get 'books/new'
+  get 'books/new' => 'books#new'
 
-  get 'books/create'
+  post 'books/create' => 'books#create'
 
   delete 'books/delete' => 'books#destroy'
 
@@ -46,9 +46,9 @@ Rails.application.routes.draw do
 
   get 'movies/new'
 
-  get 'movies/create'
+  post 'movies/create' => 'movies#create'
 
-  delete 'movies/delete' => 'movies#destroy'
+  delete 'movies/delete/:id' => 'movies#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

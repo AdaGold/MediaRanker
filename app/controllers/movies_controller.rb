@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+    @items = Movie.order('votes DESC')
   end
 
   def show
@@ -12,7 +13,9 @@ class MoviesController < ApplicationController
 
   def edit
     @object = Movie.find(params[:id])
+    @method = :put
     @path = movies_update_path(@object)
+    @form_name = "Edit"
   end
 
   def update
@@ -20,15 +23,29 @@ class MoviesController < ApplicationController
     object.update(name: params[:movie][:name],
                   creator: params[:movie][:creator],
                   description: params[:movie][:description])
+    redirect_to movies_show_path(object.id)
   end
 
   def new
+    @object = Movie.new
+    @method = :post
+    @path = movies_create_path(@object)
+    @form_name = "New"
   end
 
   def create
+    object = Movie.new(name: params[:movie][:name],
+                  creator: params[:movie][:creator],
+                  description: params[:movie][:description],
+                  votes: 0)
+    object.save
+    redirect_to movies_show_path(object.id)
   end
 
   def destroy
+    object = Movie.find(params[:id])
+    object.destroy
+    redirect_to movies_index_path
   end
 
   def upvote

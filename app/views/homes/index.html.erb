@@ -5,7 +5,7 @@
   <ul>
 
     <% @books.each do |book| %>
-        <li><%= "#{book.name}: #{book.votes} votes" %></li>
+        <li><%= link_to("#{book.name}", books_show_path(book)) %><%= ": #{book.votes} votes" %></li>
       </p>
     <% end %>
   </ul>
@@ -15,7 +15,7 @@
   <h3>Top Albums</h3>
   <ul>
     <% @albums.each do |album| %>
-        <li><%= "#{album.name}: #{album.votes} votes" %></li>
+        <li><%= link_to("#{album.name}", albums_show_path(album)) %><%= ": #{album.votes} votes" %></li>
       </p>
     <% end %>
   </ul>
@@ -25,7 +25,7 @@
   <h3>Top Movies</h3>
   <ul>
     <% @movies.each do |movie| %>
-        <li><%= "#{movie.name}: #{movie.votes} votes" %></li>
+        <li><%= link_to("#{movie.name}", movies_show_path(movie)) %><%= ": #{movie.votes} votes" %></li>
       </p>
     <% end %>
   </ul>
