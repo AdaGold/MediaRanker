@@ -1,35 +1,27 @@
-<p id="notice"><%= notice %></p>
+<main>
 
-<h1>Listing Media</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Auteur</th>
-      <th>Description</th>
-      <th>Score</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @media.each do |medium| %>
-      <tr>
-        <td><%= medium.type %></td>
-        <td><%= medium.name %></td>
-        <td><%= medium.auteur %></td>
-        <td><%= medium.description %></td>
-        <td><%= medium.score %></td>
-        <td><%= link_to 'Show', medium %></td>
-        <td><%= link_to 'Edit', edit_medium_path(medium) %></td>
-        <td><%= link_to 'Destroy', medium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <section class="top-ten">
+    <% @movies.each do |movie| %>
+      <h3><%= link_to movie.name, media_path(movie), method: :get %></h3>
+      <h4>Rating: <%= movie.score %></h4>
     <% end %>
-  </tbody>
-</table>
+    <a href='/movies'>View all Movies</a>
+  </section>
 
-<br>
+  <section class="top-ten">
+    <% @books.each do |book| %>
+      <h3><%= link_to book.name, media_path(book), method: :get %></h3>
+      <h4>Rating: <%= book.score %></h4>
+    <% end %>
+    <a href='/books'>View all Books</a>
+  </section>
 
-<%= link_to 'New Medium', new_medium_path %>
+  <section class="top-ten">
+    <% @songs.each do |song| %>
+      <h3><%= link_to song.name, media_path(song), method: :get %></h3>
+      <h4>Rating: <%= song.score %></h4>
+    <% end %>
+    <a href='/songs'>View all Songs</a>
+  </section>
+
+</main>
