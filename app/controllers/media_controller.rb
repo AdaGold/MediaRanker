@@ -9,10 +9,27 @@ class MediaController < ApplicationController
     @songs = Medium.where(category: "Song")
   end
 
+
+  # Individual index pages by topic
+  def books
+    @books = Medium.where(category: "Book")
+  end
+
+  def movies
+    @movies = Medium.where(category: "Movie")
+  end
+
+  def songs
+    @songs = Medium.where(category: "Song")
+  end
+
+
   # GET /media/1
   # GET /media/1.json
   def show
+    set_medium
   end
+
 
   # GET /media/new
   def new
@@ -51,6 +68,14 @@ class MediaController < ApplicationController
         format.json { render json: @medium.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def upvote
+    set_medium
+    @medium.score += 1
+    @medium.save
+    redirect_to show
+
   end
 
   # DELETE /media/1
