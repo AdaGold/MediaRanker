@@ -1,4 +1,5 @@
 <h1> <a href="/">Media Ranker</a></h1>
+<%= image_tag "owl_media_ranker.jpg" %>
 <p>Ranking the Best of Everything<p>
 
 <table>
@@ -7,7 +8,7 @@
     <th>Name</th> 
     <th>Upvote</th>
   </tr>
-  <% @movies[0..10].each do |movie| %>
+  <% @movies.each do |movie| %>
     <tr>
       <td><%= "Ranking: " %></td>
       <td><%=  movie.ranking %>
