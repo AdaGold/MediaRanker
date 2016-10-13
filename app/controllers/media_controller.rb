@@ -42,31 +42,18 @@ class MediaController < ApplicationController
   # POST /media
   # POST /media.json
   def create
-    @medium = Medium.new(medium_params)
-
-    respond_to do |format|
-      if @medium.save
-        format.html { redirect_to @medium, notice: 'Medium was successfully created.' }
-        format.json { render :show, status: :created, location: @medium }
-      else
-        format.html { render :new }
-        format.json { render json: @medium.errors, status: :unprocessable_entity }
-      end
-    end
+    @medium = Medium.new
   end
 
   # PATCH/PUT /media/1
   # PATCH/PUT /media/1.json
   def update
-    respond_to do |format|
-      if @medium.update(medium_params)
-        format.html { redirect_to @medium, notice: 'Medium was successfully updated.' }
-        format.json { render :show, status: :ok, location: @medium }
-      else
-        format.html { render :edit }
-        format.json { render json: @medium.errors, status: :unprocessable_entity }
-      end
-    end
+    set_medium
+    @medium.name = params[:medium][:name]
+    @medium.description = params[:medium][:description]
+    @medium.auteur = params[:medium][:auteur]
+    @medium.save
+    redirect_to show
   end
 
   def upvote
@@ -74,27 +61,31 @@ class MediaController < ApplicationController
     @medium.score += 1
     @medium.save
     redirect_to show
-
   end
 
   # DELETE /media/1
   # DELETE /media/1.json
   def destroy
+    category = Medium.find(params[:id]).category
+
     @medium.destroy
-    respond_to do |format|
-      format.html { redirect_to media_url, notice: 'Medium was successfully destroyed.' }
-      format.json { head :no_content }
+
+    case category
+    when "Movie"
+      redirect_to movies_path
+    when "Book"
+      redirect_to books_path
+    when "Song"
+      redirect_to songs_path
+    else
+      redirect_to root_path
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medium
-      @medium = Medium.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medium
+    @medium = Medium.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def medium_params
-      params.require(:medium).permit(:type, :name, :auteur, :description, :score)
-    end
 end
