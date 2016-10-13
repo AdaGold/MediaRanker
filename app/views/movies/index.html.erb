@@ -7,11 +7,12 @@
     <th>Name</th> 
     <th>Upvote</th>
   </tr>
-  <% @movies.each do |movie| %>
+  <% @movies[0..10].each do |movie| %>
     <tr>
+      <td><%= "Ranking: " %></td>
       <td><%=  movie.ranking %>
       <td><%=  movie.name  %></td>
-      <td><%=  link_to 'Upvote', upvote_show_path(upvote) %></td>
+      
     </tr>
   <% end %>
 </table>

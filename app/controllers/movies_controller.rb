@@ -5,6 +5,10 @@ class MoviesController < ApplicationController
     # want all movies to display on welcome page
   end
 
+  def show
+    @mymovie = Movie.find(params[:id].to_i)
+  end
+
   def new
     @mymovie = Movie.new
   end
@@ -36,7 +40,7 @@ class MoviesController < ApplicationController
       description: params[:movie][:description])
     
     #may need to redirect to movie specific page
-    redirect_to root_path
+    redirect_to action: 'index'
   end
 
 
@@ -44,15 +48,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
 
-    redirect_to root_path
+    redirect_to action: 'index'
 
   end
-
-  def show
-
-    @mymovie = Movie.find(params[:id].to_i)
-
-  end
-
-
 end
