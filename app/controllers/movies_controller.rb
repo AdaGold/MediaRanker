@@ -3,27 +3,26 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     # want all movies to display on welcome page
-    render "index"
   end
 
   def new
-    @movie = Movie.new
+    @mymovie = Movie.new
   end
 
   def create
-    @movie = Movie.new
-    @task.name = params[:movie][:name]
-    @task.director = params[:movie][:director]
-    @task.description = params[:movie][:description]
+    @mymovie = Movie.new
+    @mymovie.name = params[:movie][:name]
+    @mymovie.director = params[:movie][:director]
+    @mymovie.description = params[:movie][:description]
 
-    @movie.save
+    @mymovie.save
     # may need to change to movie specific page
     redirect_to root_path
   end
 
 
   def edit
-    @movie = Movie.find(params[:id])
+    @mymovie = Movie.find(params[:id])
 
   end
 
@@ -43,7 +42,7 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie = Movie.find(params[:id])
-    @task.destroy
+    @movie.destroy
 
     redirect_to root_path
 
@@ -51,7 +50,7 @@ class MoviesController < ApplicationController
 
   def show
 
-    @movie = Movie.find(params[:id])
+    @mymovie = Movie.find(params[:id].to_i)
 
   end
 

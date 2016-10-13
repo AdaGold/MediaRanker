@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'movies/index' => 'movies#index', as: 'movies_index'
 
   # show a movie
-  get 'movies/show/:id' => 'movie#show', as: 'movie_show'
+  get 'movies/:id/show' => 'movie#show', as: 'movies_show'
 
   get 'movies/new'
 
