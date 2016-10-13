@@ -4,26 +4,39 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    album = Album.find(params[:id])
-    @name = album.name
-    @votes = album.votes
-    @creator = album.creator
-    @description = album.description
+    if Album.exists?(params[:id])
+      album = Album.find(params[:id])
+      @name = album.name
+      @votes = album.votes
+      @creator = album.creator
+      @description = album.description
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def edit
-    @object = Album.find(params[:id])
-    @method = :put
-    @path = albums_update_path(@object)
-    @form_name = "Edit"
+    if Album.exists?(params[:id])
+      @object = Album.find(params[:id])
+      @method = :put
+      @path = albums_update_path(@object)
+      @form_name = "Edit"
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def update
-    object = Album.find(params[:id])
-    object.update(name: params[:album][:name],
-                  creator: params[:album][:creator],
-                  description: params[:album][:description])
-    redirect_to albums_show_path(object.id)
+    if Album.exists?(params[:id])
+      object = Album.find(params[:id])
+      object.update(name: params[:album][:name],
+                    creator: params[:album][:creator],
+                    description: params[:album][:description])
+      redirect_to albums_show_path(object.id)
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
+
   end
 
   def new
@@ -34,24 +47,36 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    object = Album.new(name: params[:album][:name],
-                  creator: params[:album][:creator],
-                  description: params[:album][:description],
-                  votes: 0)
-    object.save
-    redirect_to albums_show_path(object.id)
+    if Album.exists?(params[:id])
+      object = Album.new(name: params[:album][:name],
+                    creator: params[:album][:creator],
+                    description: params[:album][:description],
+                    votes: 0)
+      object.save
+      redirect_to albums_show_path(object.id)
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def destroy
-    object = Album.find(params[:id])
-    object.destroy
-    redirect_to albums_index_path
+    if Album.exists?(params[:id])
+      object = Album.find(params[:id])
+      object.destroy
+      redirect_to albums_index_path
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def upvote
-    album = Album.find(params[:id])
-    album.votes += 1
-    album.save
-    redirect_to albums_show_path
+    if Album.exists?(params[:id])
+      album = Album.find(params[:id])
+      album.votes += 1
+      album.save
+      redirect_to albums_show_path
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 end

@@ -4,26 +4,38 @@ class MoviesController < ApplicationController
   end
 
   def show
-    movie = Movie.find(params[:id])
-    @name = movie.name
-    @votes = movie.votes
-    @creator = movie.creator
-    @description = movie.description
+    if Movie.exists?(params[:id])
+      movie = Movie.find(params[:id])
+      @name = movie.name
+      @votes = movie.votes
+      @creator = movie.creator
+      @description = movie.description
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def edit
-    @object = Movie.find(params[:id])
-    @method = :put
-    @path = movies_update_path(@object)
-    @form_name = "Edit"
+    if Movie.exists?(params[:id])
+        @object = Movie.find(params[:id])
+        @method = :put
+        @path = movies_update_path(@object)
+        @form_name = "Edit"
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def update
-    object = Movie.find(params[:id])
-    object.update(name: params[:movie][:name],
-                  creator: params[:movie][:creator],
-                  description: params[:movie][:description])
-    redirect_to movies_show_path(object.id)
+    if Movie.exists?(params[:id])
+      object = Movie.find(params[:id])
+      object.update(name: params[:movie][:name],
+                    creator: params[:movie][:creator],
+                    description: params[:movie][:description])
+      redirect_to movies_show_path(object.id)
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def new
@@ -34,24 +46,36 @@ class MoviesController < ApplicationController
   end
 
   def create
-    object = Movie.new(name: params[:movie][:name],
-                  creator: params[:movie][:creator],
-                  description: params[:movie][:description],
-                  votes: 0)
-    object.save
-    redirect_to movies_show_path(object.id)
+    if Movie.exists?(params[:id])
+      object = Movie.new(name: params[:movie][:name],
+                    creator: params[:movie][:creator],
+                    description: params[:movie][:description],
+                    votes: 0)
+      object.save
+      redirect_to movies_show_path(object.id)
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def destroy
-    object = Movie.find(params[:id])
-    object.destroy
-    redirect_to movies_index_path
+    if Movie.exists?(params[:id])
+      object = Movie.find(params[:id])
+      object.destroy
+      redirect_to movies_index_path
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def upvote
-    movie = Movie.find(params[:id])
-    movie.votes += 1
-    movie.save
-    redirect_to movies_show_path
+    if Movie.exists?(params[:id])
+      movie = Movie.find(params[:id])
+      movie.votes += 1
+      movie.save
+      redirect_to movies_show_path
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 end
