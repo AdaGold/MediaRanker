@@ -1,13 +1,3 @@
 <h1> <a href="/">Media Ranker</a></h1>
 <p>Ranking the Best of Everything<p>
 
-<p>
-  <%= @movie.name " " %> 
-  <%= "Directed by: "@movie.director %><br>
-  <%= "Ranked: " @movie.rank %> 
-  <%= @movie.description %><br>
-  <%# link_to "Upvote", #_path(@movie) %>
-  <%= link_to "Edit" @movie.name, movie_edit_path(@movie.id) %>
-  <%= link_to "Delete", movie_destroy_path(@movie.id), method: :delte, data: {confirm: "Are you Sure?" } %>
-  <%= link_to "View All Media", index_path %>
-</p>

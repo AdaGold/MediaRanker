@@ -32,6 +32,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #awesome print
+
+# my favorite gems
+
+# well maybe not this one, first application to try it on
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'awesome_print', require: 'ap'
 
 # from my favorites folder

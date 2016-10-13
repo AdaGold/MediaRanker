@@ -2,16 +2,16 @@
 <p>Ranking the Best of Everything<p>
 
 <table>
+  <tr>
+    <th>Ranking</th> 
+    <th>Name</th> 
+    <th>Upvote</th>
+  </tr>
+  <% @movies.each do |movie| %>
     <tr>
-      <th>Ranking</th>
-      <th>Name</th>
-      <th>Upvote</th>
-    </tr>
-  <%= @movies.each do |movie| %>
-    <tr>
-      <!-- <td><%# ranking %></td> -->
+      <td><%=  movie.ranking %>
       <td><%=  movie.name  %></td>
-      <td><%=  link_to 'Upvote' %></td>
+      <td><%=  link_to 'Upvote', upvote_show_path(upvote) %></td>
     </tr>
   <% end %>
 </table>

@@ -1,2 +1,15 @@
 <h1> <a href="#">Media Ranker</a></h1>
 <p>Ranking the Best of Everything<p>
+
+<table>
+<tr>
+  <th>Top Movies</th>
+</tr>
+<% @movies.take(10).each do |movie| %>
+    <tr>
+      <td><%= movie.name %> </td>
+      <td><%= movie.ranking %> </td>
+      <td><%= link_to 'View movie!', movie_show_path(movie) %></td>
+    </tr>
+  <% end %>
+</table>
