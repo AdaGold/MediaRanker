@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
-  root 'welcome#index'
+  root to: 'welcome#index'
 
-  resources :movies, :books, :albums
+  # resources :movies, :books, :albums
 
   # index routes
-  # this will be the page where the top ten lives
+  # # this will be the page where the top ten lives
   get 'index/index'
 
   get 'index/show'
@@ -22,20 +22,20 @@ Rails.application.routes.draw do
 
   # movies routes
 
-  get 'movies/index' => 'movies#show', as: 'movies_show'
+  get 'movies/index' => 'movies#index', as: 'movies_index'
 
   # show a movie
-  get 'movie/:id/show' => 'movie#show', as: 'movie_show'
+  get 'movies/show/:id' => 'movie#show', as: 'movie_show'
 
   get 'movies/new'
 
-  get 'movies/create'
+  post 'movies/create' => 'movies#create', as: 'movies_create'
 
-  get 'movies/edit'
+  get 'movies/:id/edit' => 'movies#edit', as: 'movies_edit'
 
-  get 'movies/update'
+  put 'movies/:id/update' => 'movies#update', as: 'movies_update'
 
-  get 'movies/destroy'
+  get 'movies/destroy' => 'movies#destroy', as: 'movies_destroy'
 
   # books routes
   get 'books/index'

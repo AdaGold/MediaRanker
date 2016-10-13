@@ -1,0 +1,16 @@
+<h1>Edit #{@movie}</h1>
+
+<%= form_for @movie, url: update_path, method: :put do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.lable :director %>
+  <%= f.text_field :director %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+
+<% end %>

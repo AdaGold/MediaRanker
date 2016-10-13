@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
     @task.description = params[:movie][:description]
 
     @movie.save
+    # may need to change to movie specific page
     redirect_to root_path
   end
 
@@ -28,16 +29,29 @@ class MoviesController < ApplicationController
 
 
   def update
-    Movie.update(params[:id]), name: params[:movie][:name], params[:movie][:director], params [:movie][:description]
+    # big parameter list - use one argument per line
+    Movie.update(
+      params[:id],
+      name: params[:movie][:name],
+      director: params[:movie][:director],
+      description: params[:movie][:description])
+    
+    #may need to redirect to movie specific page
     redirect_to root_path
   end
 
 
   def destroy
+    @movie = Movie.find(params[:id])
+    @task.destroy
+
+    redirect_to root_path
 
   end
 
   def show
+
+    @movie = Movie.find(params[:id])
 
   end
 
