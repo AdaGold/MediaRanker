@@ -27,11 +27,15 @@ class MoviesController < ApplicationController
   end
 
   def update
+    if Movie.exists?(params[:id])
       object = Movie.find(params[:id])
       object.update(name: params[:movie][:name],
                     creator: params[:movie][:creator],
                     description: params[:movie][:description])
       redirect_to movies_show_path(object.id)
+    else
+      raise(ArgumentError, "Please use a correct id.")
+    end
   end
 
   def new
@@ -42,16 +46,12 @@ class MoviesController < ApplicationController
   end
 
   def create
-    if Movie.exists?(params[:id])
       object = Movie.new(name: params[:movie][:name],
                     creator: params[:movie][:creator],
                     description: params[:movie][:description],
                     votes: 0)
       object.save
       redirect_to movies_show_path(object.id)
-    else
-      raise(ArgumentError, "Please use a correct id.")
-    end
   end
 
   def destroy
