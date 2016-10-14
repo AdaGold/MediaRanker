@@ -110,4 +110,13 @@ class MoviesControllerTest < ActionController::TestCase
       put :update, params
     end
   end
+
+  # jeannie & melissa helped me with this. i did not do it myself.
+  test "should be able to upvote" do
+    assert_difference("Movie.find(movies(:catwoman).id).votes", 1) do
+      params = {id: movies(:catwoman).id}
+      @request.env['HTTP_REFERER'] = '/movies/index'
+      post :upvote, params
+    end
+  end
 end

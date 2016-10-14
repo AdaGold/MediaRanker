@@ -111,4 +111,13 @@ class BooksControllerTest < ActionController::TestCase
     end
   end
 
+  # jeannie & melissa helped me with this. i did not do it myself.
+  test "should be able to upvote" do
+    assert_difference("Book.find(books(:dreams).id).votes", 1) do
+      params = {id: books(:dreams)}
+      @request.env['HTTP_REFERER'] = '/albums/index'
+      post :upvote, params
+    end
+  end
+
 end
