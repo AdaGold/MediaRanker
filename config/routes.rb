@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   
   root to: 'welcome#index'
-
+  resources :upvotes do
+  member do
+    post 'upvote'
+  end
+end
   # resources :movies, :books, :albums
 
   # index routes
