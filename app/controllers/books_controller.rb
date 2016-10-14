@@ -27,15 +27,11 @@ class BooksController < ApplicationController
   end
 
   def update
-    if Book.exists?(params[:id])
       object = Book.find(params[:id])
       object.update(name: params[:book][:name],
                     creator: params[:book][:creator],
                     description: params[:book][:description])
       redirect_to books_show_path(object.id)
-    else
-      raise(ArgumentError, "Please use a correct id.")
-    end
   end
 
   def new

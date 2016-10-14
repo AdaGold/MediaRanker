@@ -47,16 +47,12 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    if Album.exists?(params[:id])
       object = Album.new(name: params[:album][:name],
                     creator: params[:album][:creator],
                     description: params[:album][:description],
                     votes: 0)
       object.save
       redirect_to albums_show_path(object.id)
-    else
-      raise(ArgumentError, "Please use a correct id.")
-    end
   end
 
   def destroy
