@@ -1,6 +1,16 @@
 class WelcomeController < ApplicationController
-    def index
+  def index
+    # localhost:3000 by itself without anything else in the url is the root (or '/') route and is always going to go to WelcomeController.index
+
     @movies = Movie.all
+    @books = Book.all
+    @albums = Album.all
+
+    #so if you want books and albums on the home page, you need to set @books and @albums in the same way as the above @movies
+
+    # your route for '/' goes to welcome controller, index method
+    # which is here
+    # you're not setting @books here so the view gets no books
     # want all movies to display on welcome page
   end
 

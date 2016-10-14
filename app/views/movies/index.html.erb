@@ -1,5 +1,5 @@
-<h1> <a href="/">Media Ranker</a></h1>
 <%= image_tag "owl_media_ranker.jpg" %>
+<h1> <a href="/">Media Ranker</a></h1>
 <p>Ranking the Best of Everything<p>
 
 <table>
@@ -13,7 +13,9 @@
       <td><%= "Ranking: " %></td>
       <td><%=  movie.ranking %>
       <td><%=  movie.name  %></td>
-      
     </tr>
   <% end %>
 </table>
+
+<%# button_to 'View All Movies!', index_show_path(index) %>
+<%# button_to 'View All Media!', index_show_path(index) %>

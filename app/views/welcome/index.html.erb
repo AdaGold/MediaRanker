@@ -1,5 +1,5 @@
-<h1> <a href="#">Media Ranker</a></h1>
 <%= image_tag "owl_media_ranker.jpg" %>
+<h1> <a href="#">Media Ranker</a></h1>
 <p>Ranking the Best of Everything<p>
 
 <!-- the top ten of each category is displaye don this page -->
@@ -11,9 +11,37 @@
 <% @movies[0..9].each do |movie| %>
     <tr>
       <td><%= movie.name %></td>
+     <td><%="Ranking: " %></td>
+      <!-- <td><%# movie.ranking %> -->
+<!--       <td><%# link_to 'View movie!', movie_show_path(movie[:id]) %></td>
+ -->    </tr>
+  <% end %>
+</table>
+
+<table>
+<tr>
+  <th>Top Books</th>
+</tr>
+<% @books[0..9].each do |book| %>
+    <tr>
+      <td><%= book.name %></td>
       <td><%= "Ranking: " %></td>
-      <td><%=  movie.ranking %>
-      <td><%= link_to 'View movie!', movies_show_path(movie[:id]) %></td>
+     <!--  <td><%# book.ranking %> -->
+      <!-- <td><%# link_to 'View book!', book_show_path(book[:id]) %></td> -->
+    </tr>
+  <% end %>
+</table>
+
+<table>
+<tr>
+  <th>Top Albums</th>
+</tr>
+<% @albums[0..9].each do |album| %>
+    <tr>
+      <td><%= album.name %></td>
+      <td><%= "Ranking: " %></td>
+      <!-- <td><%# album.ranking %> -->
+      <td><%#link_to 'View album!', album_show_path(album[:id]) %></td>
     </tr>
   <% end %>
 </table>

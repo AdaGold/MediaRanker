@@ -8,14 +8,14 @@
     <th>Name</th> 
     <th>Upvote</th>
   </tr>
-  <% @books.each do |book| %>
+  <% @albums.each do |album| %>
     <tr>
       <td><%= "Ranking: " %></td>
-      <td><%=  book.ranking %>
-      <td><%=  book.name  %></td>
+      <td><%=  album.ranking %>
+      <td><%=  album.name  %></td>
     </tr>
   <% end %>
 </table>
 
-<%# button_to 'View All Books!', index_show_path(index) %>
+<%# button_to 'View All albums!', index_show_path(index) %>
 <%# button_to 'View All Media!', index_show_path(index) %>

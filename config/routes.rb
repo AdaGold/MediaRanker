@@ -8,17 +8,17 @@ Rails.application.routes.draw do
   # # this will be the page where the top ten lives
   get 'index/index'
 
-  get 'index/show'
+  get 'index/show' => 'index#show', as: 'index_show'
 
   get 'index/new'
 
-  get 'index/create'
+  post 'index/create'
 
   get 'index/edit'
 
-  get 'index/update'
+  put 'index/update'
 
-  get 'index/destroy'
+  delete 'index/destroy'
 
   # movies routes
 
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   # show a movie
   get 'movies/:id/show' => 'movie#show', as: 'movies_show'
 
-  get 'movies/new'
+  get 'movies/new' => 'movies#new', as: 'movies_new'
 
   post 'movies/create' => 'movies#create', as: 'movies_create'
 
@@ -35,37 +35,37 @@ Rails.application.routes.draw do
 
   put 'movies/:id/update' => 'movies#update', as: 'movies_update'
 
-  get 'movies/destroy' => 'movies#destroy', as: 'movies_destroy'
+  delete 'movies/:id/destroy' => 'movies#destroy', as: 'movies_destroy'
 
   # books routes
-  get 'books/index'
+  get 'books/index' => 'books#index', as: 'books_index'
 
-  get 'books/show'
+  get 'books/show' => 'books#show', as: 'books_show'
 
-  get 'books/new'
+  get 'books/new' => 'books#new', as: 'books_new'
 
-  get 'books/create'
+  post 'books/create' => 'books#create', as: 'books_create'
 
-  get 'books/edit'
+  get 'books/:id/edit' => 'books#edit', as: 'books_edit'
 
-  get 'books/update'
+  put 'books/:id/update' => 'books#update', as: 'books_update'
 
-  get 'books/destroy'
+  delete 'books/destroy' => 'books#destroy', as: 'books_destroy'
 
   # album routes
-  get 'album/index'
+  get 'album/index' => 'album#index', as: 'album_index'
 
-  get 'album/show'
+  get 'album/show' => 'album#show', as: 'album_show'
 
-  get 'album/new'
+  get 'album/new' => 'album#new', as: 'album_new'
 
-  get 'album/create'
+  post 'album/create' => 'album#create', as: 'album_create'
 
-  get 'album/edit'
+  get 'album/:id/edit' => 'album#edit', as: 'album_edit'
 
-  get 'album/update'
+  put 'album/:id/update' => 'album#update', as: 'album_update'
 
-  get 'album/destroy'
+  delete 'album/:id/destroy' => 'album#destroy', as: 'album_destroy'
 
 end
 
