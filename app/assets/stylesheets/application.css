@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+  @import url('foundation.css');
+
+  * {
+    list-style-type: none;
+  }
+
+  .buttons{
+    padding: 0.5%;
+    margin: 1vmin;
+    border: 1px solid black;
+    border-radius: 10%;
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+  }
+
+  .title{
+    padding: 2% 0 1% 0;
+  }
+
+  .descrip {
+    padding: 1% 0 3% 0;
+  }
+
+ .index-ul{
+    padding-top: 3%;
+  }
+
+  .index-ul li {
+    font-size: 1.25em;
+    padding-bottom: 0.5%;
+  }

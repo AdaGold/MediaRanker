@@ -1,7 +1,8 @@
 class HomesController < ApplicationController
   def index
-    @books = Book.order('votes DESC')
-    @movies = Movie.order('votes DESC')
-    @albums = Album.order('votes DESC')
+    records = 10
+    @books = Book.limit(records).order('votes desc')
+    @movies = Movie.limit(records).order('votes DESC')
+    @albums = Album.limit(records).order('votes DESC')
   end
 end
