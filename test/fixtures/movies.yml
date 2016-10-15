@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  director: MyString
-  description: MyText
+  name: Star Trek
+  director: Gene_Rodenberry
+  description: Hope for humanity in outer space
 
 two:
-  name: MyString
-  director: MyString
-  description: MyText
+  name: Arrival
+  director: Who knows
+  description: cool new movie

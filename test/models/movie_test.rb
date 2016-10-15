@@ -2,6 +2,11 @@ require 'test_helper'
 
 class MovieTest < ActiveSupport::TestCase
   
+  test "director can have movie" do
+    assert_includes directors(:Gene_Rodenberrry).movies, movies(:Star_Trek) 
+
+  end
+
   test "Create an empty movie"  do 
     mymovie = Movie.new
     assert mymovie.valid?
