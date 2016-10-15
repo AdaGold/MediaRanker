@@ -10,12 +10,13 @@
   </tr>
   <% @movies.each do |movie| %>
     <tr>
-      <td><%= "Ranking: " %></td>
-      <td><%=  movie.ranking %>
-      <td><%=  movie.name  %></td>
+      <td><%= "Ranking: " + (movie.rankings == nil ? "nil" : "notnil") %></td>
+      <td><%= movie.name  %></td>
+      <td>upvote buttons here</td>
+      <!-- <td><%# link_to 'Upvote', upvote_movie_path(upvote), method: :post %></td-->
+      <%# link_to 'View All Movies!', movies_index_path(index) %>
+      <%# link_to 'View All Media!', index_show_path(index) %>
     </tr>
   <% end %>
 </table>
 
-<%# button_to 'View All Movies!', index_show_path(index) %>
-<%# button_to 'View All Media!', index_show_path(index) %>

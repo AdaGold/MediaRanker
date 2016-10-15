@@ -27,6 +27,7 @@ class WelcomeController < ApplicationController
     @mymovie.name = params[:movie][:name]
     @mymovie.director = params[:movie][:director]
     @mymovie.description = params[:movie][:description]
+    @mymovie.ranking = params[:movie][:ranking]
 
     @mymovie.save
     # may need to change to movie specific page
@@ -46,7 +47,8 @@ class WelcomeController < ApplicationController
       params[:id],
       name: params[:movie][:name],
       director: params[:movie][:director],
-      description: params[:movie][:description])
+      description: params[:movie][:description],
+      ranking:params[:movie][:ranking])
     
     #may need to redirect to movie specific page
     redirect_to action: 'index'

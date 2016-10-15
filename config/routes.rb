@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   put 'movies/:id/update' => 'movies#update', as: 'movies_update'
 
+  put 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'
+
   delete 'movies/:id/destroy' => 'movies#destroy', as: 'movies_destroy'
 
   # books routes
