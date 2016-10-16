@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   #put 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'
   get 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'  
 
-  get 'movies/:id/destroy' => 'movies#destroy', as: 'movies_destroy'
+  delete 'movies/:id/destroy' => 'movies#destroy', as: 'movies_destroy'
 
   # books routes
   get 'books/index' => 'books#index', as: 'books_index'

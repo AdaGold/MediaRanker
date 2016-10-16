@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
 
     @mymovie.save
     # may need to change to movie specific page
-    redirect_to root_path
+    redirect_to movies_index_path
   end
 
   def edit
