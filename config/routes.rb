@@ -1,56 +1,77 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  
+  root to: 'welcome#index'
+  
+  # # this will be the page where the top ten lives
+  get 'index/index'
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  get 'index/show' => 'index#show', as: 'index_show'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'index/new'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  post 'index/create'
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  get 'index/edit'
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  put 'index/update'
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  delete 'index/destroy'
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  # movies routes
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  get 'movies/index' => 'movies#index', as: 'movies_index'
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  # show a movie
+  get 'movies/:id/show' => 'movies#show', as: 'movies_show'
+
+  get 'movies/new' => 'movies#new', as: 'movies_new'
+
+  post 'movies/create' => 'movies#create', as: 'movies_create'
+
+  get 'movies/:id/edit' => 'movies#edit', as: 'movies_edit'
+
+  put 'movies/:id/update' => 'movies#update', as: 'movies_update'
+
+  #put 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'
+  get 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'  
+
+  delete 'movies/:id/destroy' => 'movies#destroy', as: 'movies_destroy'
+
+  # books routes
+  get 'books/index' => 'books#index', as: 'books_index'
+
+  get 'books/:id/show' => 'books#show', as: 'books_show'
+
+  get 'books/new' => 'books#new', as: 'books_new'
+
+  post 'books/create' => 'books#create', as: 'books_create'
+
+  get 'books/:id/edit' => 'books#edit', as: 'books_edit'
+
+  put 'books/:id/update' => 'books#update', as: 'books_update'
+
+  get 'books/:id/upvote' => 'books#upvote', as: 'books_upvote'
+
+  delete 'books/destroy' => 'books#destroy', as: 'books_destroy'
+
+  # albums routes
+  get 'albums/index' => 'albums#index', as: 'albums_index'
+
+  get 'albums/:id/show' => 'albums#show', as: 'albums_show'
+
+  get 'albums/new' => 'albums#new', as: 'albums_new'
+
+  post 'albums/create' => 'albums#create', as: 'albums_create'
+
+  get 'albums/:id/edit' => 'albums#edit', as: 'albums_edit'
+
+  put 'albums/:id/update' => 'albums#update', as: 'albums_update'
+
+  get 'albums/:id/upvote' => 'albums#upvote', as: 'albums_upvote'
+
+  delete 'albums/:id/destroy' => 'albums#destroy', as: 'albums_destroy'
+
 end
+
+
+  
