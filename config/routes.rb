@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   # books routes
   get 'books/index' => 'books#index', as: 'books_index'
 
-  get 'books/show' => 'books#show', as: 'books_show'
+  get 'books/:id/show' => 'books#show', as: 'books_show'
 
   get 'books/new' => 'books#new', as: 'books_new'
 
@@ -50,26 +50,26 @@ Rails.application.routes.draw do
 
   put 'books/:id/update' => 'books#update', as: 'books_update'
 
-  put 'books/:id/upvote' => 'books#upvote', as: 'books_upvote'
+  get 'books/:id/upvote' => 'books#upvote', as: 'books_upvote'
 
-  get 'books/destroy' => 'books#destroy', as: 'books_destroy'
+  delete 'books/destroy' => 'books#destroy', as: 'books_destroy'
 
-  # album routes
-  get 'album/index' => 'album#index', as: 'album_index'
+  # albums routes
+  get 'albums/index' => 'albums#index', as: 'albums_index'
 
-  get 'album/show' => 'album#show', as: 'album_show'
+  get 'albums/:id/show' => 'albums#show', as: 'albums_show'
 
-  get 'album/new' => 'album#new', as: 'album_new'
+  get 'albums/new' => 'albums#new', as: 'albums_new'
 
-  post 'album/create' => 'album#create', as: 'album_create'
+  post 'albums/create' => 'albums#create', as: 'albums_create'
 
-  get 'album/:id/edit' => 'album#edit', as: 'album_edit'
+  get 'albums/:id/edit' => 'albums#edit', as: 'albums_edit'
 
-  put 'album/:id/update' => 'album#update', as: 'album_update'
+  put 'albums/:id/update' => 'albums#update', as: 'albums_update'
 
-  put 'album/:id/upvote' => 'album#upvote', as: 'album_upvote'
+  get 'albums/:id/upvote' => 'albums#upvote', as: 'albums_upvote'
 
-  get 'album/:id/destroy' => 'album#destroy', as: 'album_destroy'
+  delete 'albums/:id/destroy' => 'albums#destroy', as: 'albums_destroy'
 
 end
 

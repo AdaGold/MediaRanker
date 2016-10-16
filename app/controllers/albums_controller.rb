@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+
   def index
     @albums = Album.all
     # want all albums to display on welcome page
@@ -15,12 +16,12 @@ class AlbumsController < ApplicationController
   def create
     @myalbum = Album.new
     @myalbum.name = params[:album][:name]
-    @myalbum.director = params[:album][:director]
+    @myalbum.recorded_by = params[:album][:recorded_by]
     @myalbum.description = params[:album][:description]
 
     @myalbum.save
     # may need to change to album specific page
-    redirect_to root_path
+    redirect_to albums_index_path
   end
 
 
@@ -29,6 +30,15 @@ class AlbumsController < ApplicationController
 
   end
 
+   def upvote
+    # http://stackoverflow.com/questions/11499110/increment-vs-1
+    # http://www.brownwebdesign.com/blog/ruby-on-rails-increment-and-decrement
+    @myalbum = Album.find(params[:id])
+
+    @myalbum.increment!(:rankings)
+
+    redirect_to albums_index_path
+  end
 
   def update
     #use one argument per line for readability

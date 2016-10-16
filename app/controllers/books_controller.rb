@@ -7,6 +7,7 @@ class BooksController < ApplicationController
 
   def show
     @mybook = Book.find(params[:id].to_i)
+    render :show
   end
 
   def new
@@ -21,7 +22,7 @@ class BooksController < ApplicationController
 
     @mybook.save
     # may need to change to book specific page
-    redirect_to root_path
+    redirect_to books_index_path
   end
 
 
@@ -29,6 +30,15 @@ class BooksController < ApplicationController
     @mybook = book.find(params[:id])
   end
 
+  def upvote
+    # http://stackoverflow.com/questions/11499110/increment-vs-1
+    # http://www.brownwebdesign.com/blog/ruby-on-rails-increment-and-decrement
+    @mybook = Book.find(params[:id])
+
+    @mybook.increment!(:rankings)
+
+    redirect_to books_index_path
+  end
 
   def update
     # big parameter list - use one argument per line
@@ -44,7 +54,7 @@ class BooksController < ApplicationController
 
 
   def destroy
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
     @book.destroy
 
     redirect_to action: 'index'

@@ -11,6 +11,6 @@
 
 <%= link_to 'DELETE', movies_destroy_path(@mymovie), method: :delete, data: {confirm:"Are you Sure?" } %>
 
-<% link_to 'View All Movies', movies_show_path(@mymovie) %>
+<%= link_to 'View All Movies', movies_index_path(@movies) %>
 
 <%# link_to 'View All Media', root_path(@mymovie) %>
