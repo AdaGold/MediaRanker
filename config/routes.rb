@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'movies/index' => 'movies#index', as: 'movies_index'
 
   # show a movie
-  get 'movies/:id/show' => 'movie#show', as: 'movies_show'
+  get 'movies/:id/show' => 'movies#show', as: 'movies_show'
 
   get 'movies/new' => 'movies#new', as: 'movies_new'
 
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   #put 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'
   get 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'  
 
-  delete 'movies/:id/destroy' => 'movies#destroy', as: 'movies_destroy'
+  get 'movies/:id/destroy' => 'movies#destroy', as: 'movies_destroy'
 
   # books routes
   get 'books/index' => 'books#index', as: 'books_index'
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
 
   put 'books/:id/upvote' => 'books#upvote', as: 'books_upvote'
 
-  delete 'books/destroy' => 'books#destroy', as: 'books_destroy'
+  get 'books/destroy' => 'books#destroy', as: 'books_destroy'
 
   # album routes
   get 'album/index' => 'album#index', as: 'album_index'
@@ -69,7 +69,7 @@ Rails.application.routes.draw do
 
   put 'album/:id/upvote' => 'album#upvote', as: 'album_upvote'
 
-  delete 'album/:id/destroy' => 'album#destroy', as: 'album_destroy'
+  get 'album/:id/destroy' => 'album#destroy', as: 'album_destroy'
 
 end
 

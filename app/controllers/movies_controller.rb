@@ -6,7 +6,10 @@ class MoviesController < ApplicationController
   end
 
   def show
+
     @mymovie = Movie.find(params[:id].to_i)
+    render :show
+
   end
 
   def new
@@ -35,8 +38,6 @@ class MoviesController < ApplicationController
     @mymovie = Movie.find(params[:id])
 
     @mymovie.increment!(:rankings)
-
-    #@mymovie.save
 
     redirect_to movies_index_path
   end

@@ -11,7 +11,7 @@
   <% @movies.each do |movie| %>
     <tr>
       <td><%= "Ranking: " + movie.rankings.to_s %></td>
-      <td><%= movie.name  %></td>
+      <td><%= link_to movie.name, movies_show_path(movie[:id]) %></td>
       
       <td><%= link_to 'Upvote', movies_upvote_path(movie) %></td>
       <%# link_to 'View All Movies!', movies_index_path(index) %>
