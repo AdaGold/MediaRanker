@@ -2,7 +2,7 @@
 <h1> <a href="#">Media Ranker</a></h1>
 <p>Ranking the Best of Everything<p>
 
-<!-- the top ten of each category is displaye don this page -->
+<!-- the top ten of each category is displayed on this page -->
 
 <table>
 <tr>
@@ -11,11 +11,11 @@
 <% @movies[0..9].each do |movie| %>
     <tr>
       <td><%= movie.name %></td>
-     <td><%= "Ranking: " + (movie.rankings == nil ? "nil" : "notnil") %></td>
-      <!-- <td><%# movie.ranking %> -->
-<!--       <td><%# link_to 'View movie!', movie_show_path(movie[:id]) %></td>
- -->    </tr>
+      <td><%= "Ranking: " + (movie.rankings == nil ? "nil" : "notnil") %></td>
+     <!-- place link to view each movie here -->
+    </tr>
   <% end %>
+  <!-- place link to view ALL movies here -->
 </table>
 
 <table>

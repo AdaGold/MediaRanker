@@ -2,9 +2,6 @@ Rails.application.routes.draw do
   
   root to: 'welcome#index'
   
-  # resources :movies, :books, :albums
-
-  # index routes
   # # this will be the page where the top ten lives
   get 'index/index'
 
@@ -35,7 +32,8 @@ Rails.application.routes.draw do
 
   put 'movies/:id/update' => 'movies#update', as: 'movies_update'
 
-  put 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'
+  #put 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'
+  get 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'  
 
   delete 'movies/:id/destroy' => 'movies#destroy', as: 'movies_destroy'
 
@@ -52,6 +50,8 @@ Rails.application.routes.draw do
 
   put 'books/:id/update' => 'books#update', as: 'books_update'
 
+  put 'books/:id/upvote' => 'books#upvote', as: 'books_upvote'
+
   delete 'books/destroy' => 'books#destroy', as: 'books_destroy'
 
   # album routes
@@ -66,6 +66,8 @@ Rails.application.routes.draw do
   get 'album/:id/edit' => 'album#edit', as: 'album_edit'
 
   put 'album/:id/update' => 'album#update', as: 'album_update'
+
+  put 'album/:id/upvote' => 'album#upvote', as: 'album_upvote'
 
   delete 'album/:id/destroy' => 'album#destroy', as: 'album_destroy'
 

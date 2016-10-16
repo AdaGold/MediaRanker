@@ -1,3 +1,3 @@
 class Book < ActiveRecord::Base
-  belongs_to :author
+  validates_presence_of :name, :author, :description
 end

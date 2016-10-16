@@ -32,8 +32,13 @@ class MoviesController < ApplicationController
   def upvote
     # http://stackoverflow.com/questions/11499110/increment-vs-1
     # http://www.brownwebdesign.com/blog/ruby-on-rails-increment-and-decrement
-    @mymovie.increment_counter(:ranking)
-    @mymovie.save
+    @mymovie = Movie.find(params[:id])
+
+    @mymovie.increment!(:rankings)
+
+    #@mymovie.save
+
+    redirect_to movies_index_path
   end
 
   def update
