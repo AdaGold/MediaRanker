@@ -10,7 +10,7 @@
   </tr>
   <% @movies.each do |movie| %>
     <tr>
-      <td><%= "Ranking: " + (movie.rankings == nil ? "nil" : movie.rankings.to_s) %></td>
+      <td><%= "Ranking: " + movie.rankings.to_s %></td>
       <td><%= movie.name  %></td>
       
       <td><%= link_to 'Upvote', movies_upvote_path(movie) %></td>
