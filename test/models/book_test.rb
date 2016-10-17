@@ -7,4 +7,10 @@ class BookTest < ActiveSupport::TestCase
     assert_not book.valid?
     assert book.errors.keys.include?(:name), "name is not present"
   end
+
+  test 'should not save book witout name' do
+
+    book = Book.new
+    assert_not book.save, "Cannot savem moive without a name"
+  end
 end

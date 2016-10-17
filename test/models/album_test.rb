@@ -9,4 +9,10 @@ class AlbumTest < ActiveSupport::TestCase
     assert album.errors.keys.include?(:name), "name is not present"
   end
 
+  test 'should not save album witout name' do
+
+    album = Album.new
+    assert_not album.save, "Cannot savem moive without a name"
+  end
+
 end
