@@ -42,6 +42,10 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'guard-minitest', '~> 2.3.2'
+  # gem 'minitest-colorize', '~> 0.0.5' 
+  gem 'terminal-notifier-guard', '~> 1.6.4'
+  gem 'terminal-notifier', '~>1.6.2'
 end
 
 group :development do
