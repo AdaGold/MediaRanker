@@ -5,7 +5,6 @@ class MediumTest < ActiveSupport::TestCase
     assert media(:movie_all_fields).valid?, "Movie with all fields should be valid"
     assert media(:book_all_fields).valid?, "Movie with all fields should be valid"
     assert media(:song_all_fields).valid?, "Movie with all fields should be valid"
-
     assert media(:movie_min_fields).valid?, "Movie with minimum required fields should be valid"
     assert_not media(:movie_missing_name).valid?, "Movie should not be valid if missing name"
     assert_not media(:movie_missing_auteur).valid?, "Movie should not be valid if missing auteur"

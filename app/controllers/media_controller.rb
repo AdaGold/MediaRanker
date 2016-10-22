@@ -43,6 +43,7 @@ class MediaController < ApplicationController
   # POST /media.json
   def create
     @medium = Medium.new
+    redirect_to show
   end
 
   # PATCH/PUT /media/1
