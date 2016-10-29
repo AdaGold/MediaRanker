@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
-
+  # add some neccessary validations
+  
   def index
     @albums = Album.all
     # want all albums to display on welcome page
@@ -9,7 +10,7 @@ class AlbumsController < ApplicationController
     @myalbum = Album.find(params[:id].to_i)
   end
 
-  def new
+  def newf
     @myalbum = Album.new
   end
 

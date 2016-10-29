@@ -16,3 +16,6 @@ class AlbumTest < ActiveSupport::TestCase
   end
 
 end
+
+
+# .order method does acendenting can call reverse (:desc) .limit()

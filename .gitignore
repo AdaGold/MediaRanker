@@ -58,3 +58,9 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# hide sekrets!
+.env
+
+# hide DS_store
+.DS_store
