@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all
+    @books_sort = Book.order(rankings: :desc)
     # want all books to display on welcome page
   end
 

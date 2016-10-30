@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   # add some neccessary validations
   
   def index
-    @albums = Album.all
+    @albums_sort = Album.order(rankings: :desc)
     # want all albums to display on welcome page
   end
 
@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
     @myalbum = Album.find(params[:id].to_i)
   end
 
-  def newf
+  def new
     @myalbum = Album.new
   end
 
