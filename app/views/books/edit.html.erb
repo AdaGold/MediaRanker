@@ -1,6 +1,7 @@
-<h1>Edit #{@book}</h1>
+<%= image_tag "owl_media_ranker.jpg" %>
+<h1><%= 'Edit ' + @mybook[:name] %></h1>
 
-<%= form_for @book, url: update_path, method: :put do |f| %>
+<%= form_for @mybook, url: books_update_path, method: :put do |f| %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>

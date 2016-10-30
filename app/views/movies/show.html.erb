@@ -2,8 +2,9 @@
 <p>Ranking the Best of Everything<p>
 
 <h1><%= @mymovie.name %></h1>
-<h2><%= @mymovie.director %></h2><br>
+<h2><%= "Directed by:" + @mymovie.director %></h2><br>
 <h3><%= "Ranked: " + @mymovie.rankings.to_s   %></h3>
+<h4><%= @mymovie.description %></h4>
 
 <%= link_to 'Upvote', movies_upvote_path(@mymovie) %>
 
@@ -13,4 +14,4 @@
 
 <%= link_to 'View All Movies', movies_index_path(@movies) %>
 
-<%# link_to 'View All Media', root_path(@mymovie) %>
+<%= link_to 'View All Media', root_path %>

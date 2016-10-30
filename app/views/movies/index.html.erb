@@ -3,11 +3,13 @@
 <p>Ranking the Best of Everything<p>
 
 <table>
+
   <tr>
     <th>Ranking</th> 
     <th>Name</th> 
     <th>Upvote</th>
   </tr>
+  
   <% @movies.each do |movie| %>
     <tr>
       <td><%= "Ranking: " + movie.rankings.to_s %></td>

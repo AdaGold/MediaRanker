@@ -27,7 +27,7 @@ class BooksController < ApplicationController
 
 
   def edit
-    @mybook = book.find(params[:id])
+    @mybook = Book.find(params[:id])
   end
 
   def upvote
@@ -45,7 +45,7 @@ class BooksController < ApplicationController
     Book.update(
       params[:id],
       name: params[:book][:name],
-      director: params[:book][:author],
+      author: params[:book][:author],
       description: params[:book][:description])
     
     #may need to redirect to book specific page

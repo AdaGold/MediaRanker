@@ -46,7 +46,7 @@ class AlbumsController < ApplicationController
     Album.update(
       params[:id],
       name: params[:album][:name],
-      director: params[:album][:director],
+      recorded_by: params[:album][:recorded_by],
       description: params[:album][:description])
     
     #may need to redirect to album specific page

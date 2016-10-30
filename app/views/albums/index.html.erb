@@ -13,7 +13,7 @@
   <% @albums_sort.each do |album| %>
     <tr>
       <td><%= "Ranking: " + album.rankings.to_s %></td>
-      <td><%= link_to album.name, albums_show_path(album[:id]) %></td>
+      <td><%= link_to album.name, albums_show_path(album) %></td>
       <td><%= link_to 'Upvote', albums_upvote_path(album) %></td>
     </tr>
   <% end %>

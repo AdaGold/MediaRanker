@@ -1,6 +1,7 @@
-<h1>Edit #{@album}</h1>
+<%= image_tag "owl_media_ranker.jpg" %>
+<h1><%= 'Edit ' + @myalbum[:name] %></h1>
 
-<%= form_for @album, url: update_path, method: :put do |f| %>
+<%= form_for @myalbum, url: albums_update_path, method: :put do |f| %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
