@@ -7,7 +7,7 @@
   <li>Name</li> 
   <li>Upvote</li>
 </ul>
-<% @albums.each do |album| %>
+<% @albums.each.ranking.sort.reverse do |album| %>
   <ul>
     <li><%= "Ranking: " + album.rankings.to_s %></li>
     <li><%= link_to album.name, albums_show_path(album[:id])  %></li>

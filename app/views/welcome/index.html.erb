@@ -3,48 +3,34 @@
 <p>Ranking the Best of Everything<p>
 
 <!-- the top ten of each category is displayed on this page -->
-<!-- add sort and display by rank
- -->
-<table>
-<tr>
-  <th>Top Movies</th>
-</tr>
-<% @movies[0..9].each do |movie| %>
-    <tr>
-      <td><%= link_to movie.name %></td>
-      <td><%= "Ranking: " + movie.rankings.to_s %></td>
-     <!-- place link to view each movie here -->
-    </tr>
-  <% end %>
-</table>
-<%= link_to 'View more Movies', movies_index_path(@movies) %>
 
-<table>
-<tr>
-  <th>Top Books</th>
-</tr>
-<% @books[0..9].each do |book| %>
-    <tr>
-      <td><%= link_to book.name %></td>
-      <td><%= "Ranking: " + book.rankings.to_s %></td>
-     <!--  <td><%# book.ranking %> -->
-      <!-- <td><%# link_to 'View book!', book_show_path(book[:id]) %></td> -->
-    </tr>
-  <% end %>
-</table>
- <%= link_to 'View more Books', books_index_path(@books) %>
+<section>
+  <h1>Top Movies</h1>
+  <ul>
+    <% @first_10_movies.each do |movie| %>
+    <li><%= movie.name + " Ranked:" + movie.rankings.to_s %> </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View more Movies', books_index_path(@books) %>
+</section>
 
-<table>
-<tr>
-  <th>Top Albums</th>
-</tr>
-<% @albums[0..9].each do |album| %>
-    <tr>
-      <td><%= link_to album.name %></td>
-      <td><%= "Ranking: " + album.rankings.to_s %></td>
-      <!-- <td><%# album.ranking %> -->
-      <td><%#link_to 'View album!', album_show_path(album[:id]) %></td>
-    </tr>
-  <% end %>
-</table>
- <%= link_to 'View more Albums', albums_index_path(@albums) %>
+<section>
+  <h1>Top Books</h1>
+  <ul>
+    <% @first_10_books.each do |book| %>
+    <li><%= book.name + " Ranked:" + book.rankings.to_s %> </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View more Books', books_index_path(@books) %>
+</section>
+
+<section>
+  <h1>Top Albums</h1>
+  <ul>
+    <% @first_10_albums.each do |album| %>
+    <li><%= album.name + " Ranked:" + album.rankings.to_s %> </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View more Albums', albums_index_path(@albums) %>
+</section>
+ 
