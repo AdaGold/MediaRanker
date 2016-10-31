@@ -1,0 +1,26 @@
+<!-- refactor into a parital -->
+<%= image_tag "owl_media_ranker.jpg" %>
+<h1> <a href="/">Media Ranker</a></h1>
+<p>Ranking the Best of Everything<p>
+<!-- refactor into a parital -->
+
+<table>
+
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @books_sort.each do |book| %>
+    <tr>
+      <td><%= "Ranking: " + book.rankings.to_s %></td>
+      <td><%= link_to book.name, books_show_path(book[:id]) %></td>
+      <td><%= link_to 'Upvote', books_upvote_path(book) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= button_to 'View All Books!', books_show_path %>
+<%= button_to 'View All Media!', root_path %>
+

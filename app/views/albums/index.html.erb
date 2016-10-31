@@ -1,0 +1,24 @@
+<%= image_tag "owl_media_ranker.jpg" %>
+<h1> <a href="/">Media Ranker</a></h1>
+<p>Ranking the Best of Everything<p>
+
+<table>
+
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @albums_sort.each do |album| %>
+    <tr>
+      <td><%= "Ranking: " + album.rankings.to_s %></td>
+      <td><%= link_to album.name, albums_show_path(album) %></td>
+      <td><%= link_to 'Upvote', albums_upvote_path(album) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Add an album!', albums_new_path %>
+<%= link_to 'View All Media!', root_path %>
+<!-- buttons default to post, must overide as above with get if you want it to navigate to new page -->

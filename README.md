@@ -1,5 +1,7 @@
 # Media Ranker
 
+https://fierce-badlands-90639.herokuapp.com/
+
 In this project we will focus on build a simple rails app that has three data models (Movie, Album, Book). We will be focusing on rails request cycle comprehension and introducing testing to our rails applications. To maximize the focus on comprehension, students will implement features based off of an existing website (http://media-ranker.herokuapp.com).
 
 ### Goals
@@ -19,8 +21,8 @@ Before you start writing _any_ code:
 
 Once you've explored the existing Media Ranker site, this project:
 
-- requires an individual branch and fork
-- Use [better_errors](https://github.com/charliesome/better_errors) for debugging purposes
+- requires an individual **branch** and fork
+- Use better_errors for debugging purposes
 - requires you to create a Rails application
   - conform to Rails conventions on naming and inflection
   - by using `rails new .` you will create a new rails app _inside_ of the fork folder instead of creating a _new_ folder for your rails app

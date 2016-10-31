@@ -1,0 +1,36 @@
+<%= image_tag "owl_media_ranker.jpg" %>
+<h1> <a href="#">Media Ranker</a></h1>
+<p>Ranking the Best of Everything<p>
+
+<!-- the top ten of each category is displayed on this page -->
+<!-- TODO jm-rives dry this up at some point, partials mebe? -->
+<section>
+  <h1>Top Movies</h1>
+  <ul>
+    <% @first_10_movies.each do |movie| %>
+    <li><%= link_to movie.name, movies_show_path(movie)  %> <%=" Ranked:" + movie.rankings.to_s %> </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View more Movies', movies_index_path(@movies) %>
+</section>
+
+<section>
+  <h1>Top Books</h1>
+  <ul>
+    <% @first_10_books.each do |book| %>
+    <li><%= link_to book.name, books_show_path(book) %> <%=" Ranked:" + book.rankings.to_s %> </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View more Books', books_index_path(@books) %>
+</section>
+
+<section>
+  <h1>Top Albums</h1>
+  <ul>
+    <% @first_10_albums.each do |album| %>
+    <li><%= link_to album.name, albums_show_path(album) %> <%= "Ranked:" + album.rankings.to_s %> </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View more Albums', albums_index_path(@albums) %>
+</section>
+ 

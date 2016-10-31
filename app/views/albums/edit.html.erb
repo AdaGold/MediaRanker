@@ -1,0 +1,17 @@
+<%= image_tag "owl_media_ranker.jpg" %>
+<h1><%= 'Edit ' + @myalbum[:name] %></h1>
+
+<%= form_for @myalbum, url: albums_update_path, method: :put do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :recorded_by %>
+  <%= f.text_field :recorded_by %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+
+<% end %>
