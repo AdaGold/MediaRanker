@@ -5,7 +5,6 @@
 | :------------- | :------------- |
 | **Core Requirements** |   |
 | Git hygiene |  |
-| Agile practices (trello board) |  |
 | Comprehension questions	|  |
 | **General** |  |
 | Rails fundamentals (RESTful routing, use of named paths) |  |
