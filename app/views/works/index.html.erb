@@ -1,8 +1,61 @@
 <h1>All Media</h1>
-<ul>
-  <% @works.each do |work| %>
-  <li>
-    <%= work.title %>
-  </li>
-  <% end %>
-</ul>
+
+<h2>Albums</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Creator</th>
+      <th>Published</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @albums.each do |item| %>
+      <tr>
+      <td><%= item.title %></td>
+      <td><%= item.creator %></td>
+      <td><%= item.publication_year %></td>
+    </tr>
+    <%end %>
+  </tbody>
+</table>
+
+<h2>Books</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Creator</th>
+      <th>Published</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @books.each do |item| %>
+      <tr>
+      <td><%= item.title %></td>
+      <td><%= item.creator %></td>
+      <td><%= item.publication_year %></td>
+    </tr>
+    <%end %>
+  </tbody>
+</table>
+
+<h2>Movies</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Creator</th>
+      <th>Published</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @movies.each do |item| %>
+      <tr>
+      <td><%= item.title %></td>
+      <td><%= item.creator %></td>
+      <td><%= item.publication_year %></td>
+    </tr>
+    <%end %>
+  </tbody>
+</table>
