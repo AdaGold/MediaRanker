@@ -28,8 +28,20 @@
         </li>
       </ul>
     </nav>
+    <main>
+      <section class="flash">
+        <% flash.each do |name, message| %>
+          <section class="<%= name %>">
+          <p>
+          <%= message %>
+          </p>
+          <% end %>
+          </section>
 
-    <%= yield %>
-
+      </section>
+      <section>
+        <%= yield %>
+      </section>
+    </main>
   </body>
 </html>

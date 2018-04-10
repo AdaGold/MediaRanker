@@ -1,11 +1,72 @@
 require "test_helper"
 
 describe Work do
-  let(:work) { Work.new }
 
-  it "must be valid" do
-    value(work).must_be :valid?
+  describe "create new work" do
+
+    describe "relations" do
+      it "must be valid" do
+        work = works(:pride)
+        value(work).must_be :valid?
+      end
+
+      it "must only have a valid title" do
+        work = works(:pride)
+
+        work.title = ""
+        work.valid?.must_equal false
+        work.errors.must_include :title
+
+        work.title = " "
+        work.valid?.must_equal false
+        work.errors.must_include :title
+
+        work.title = nil
+        work.valid?.must_equal false
+        work.errors.must_include :title
+
+        work.title = "I, Tonya"
+        work.valid?.must_equal false
+        work.errors.must_include :title
+      end
+
+      it "must only have a valid creator" do
+        work = works(:help)
+
+        work.creator = ""
+        work.valid?.must_equal false
+        work.errors.must_include :creator
+
+        work.creator = nil
+        work.valid?.must_equal false
+        work.errors.must_include :creator
+
+        work.creator = " "
+        work.valid?.must_equal false
+        work.errors.must_include :creator
+      end
+
+      it "must only have a valid publication year" do
+        work = works(:itonya)
+
+        work.publication_year = ""
+        work.valid?.must_equal false
+        work.errors.must_include :publication_year
+
+        work.publication_year = nil
+        work.valid?.must_equal false
+        work.errors.must_include :publication_year
+
+        work.publication_year = -1
+        work.valid?.must_equal false
+        work.errors.must_include :publication_year
+
+        work.publication_year = Date.current.year+1
+        work.valid?.must_equal false
+        work.errors.must_include :publication_year
+      end
+    end
   end
 
-  
+
 end
