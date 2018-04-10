@@ -3,6 +3,15 @@
   (originally upvotes/index)
 </p>
 <!-- using limit and no sorting -->
+<!-- consider adding a vote count to work -->
+
+<section>
+  <h2>Media Spotlight:  <%= @featured.title %> by <%= @featured.creator %></h2>
+  <p>
+    <%= @count %> votes - <%= @featured.description %>
+  </p>
+</section>
+
 <section>
   <h2>Top Albums</h2>
   <% @albums.each do |item| %>
