@@ -1,61 +1,64 @@
 <h1>All Media</h1>
 
-<h2>Albums</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Creator</th>
-      <th>Published</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @albums.each do |item| %>
+<section>
+  <h2>Albums</h2>
+  <table>
+    <thead>
       <tr>
-      <td><%= link_to item.title, work_path(item.id) %></td>
-      <td><%= item.creator %></td>
-      <td><%= item.publication_year %></td>
-    </tr>
-    <%end %>
-  </tbody>
-</table>
+        <th>Title</th>
+        <th>Creator</th>
+        <th>Published</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @albums.each do |item| %>
+        <tr>
+        <td><%= link_to item.title, work_path(item.id) %></td>
+        <td><%= item.creator %></td>
+        <td><%= item.publication_year %></td>
+      </tr>
+      <%end %>
+    </tbody>
+  </table>
 
-<h2>Books</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Creator</th>
-      <th>Published</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @books.each do |item| %>
+  <h2>Books</h2>
+  <table>
+    <thead>
       <tr>
-      <td><%= link_to item.title, work_path(item.id) %></td>
-      <td><%= item.creator %></td>
-      <td><%= item.publication_year %></td>
-    </tr>
-    <%end %>
-  </tbody>
-</table>
+        <th>Title</th>
+        <th>Creator</th>
+        <th>Published</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @books.each do |item| %>
+        <tr>
+        <td><%= link_to item.title, work_path(item.id) %></td>
+        <td><%= item.creator %></td>
+        <td><%= item.publication_year %></td>
+      </tr>
+      <%end %>
+    </tbody>
+  </table>
 
-<h2>Movies</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Creator</th>
-      <th>Published</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @movies.each do |item| %>
+  <h2>Movies</h2>
+  <table>
+    <thead>
       <tr>
-      <td><%= link_to item.title, work_path(item.id) %></td>
-      <td><%= item.creator %></td>
-      <td><%= item.publication_year %></td>
-    </tr>
-    <%end %>
-  </tbody>
-</table>
+        <th>Title</th>
+        <th>Creator</th>
+        <th>Published</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @movies.each do |item| %>
+        <tr>
+        <td><%= link_to item.title, work_path(item.id) %></td>
+        <td><%= item.creator %></td>
+        <td><%= item.publication_year %></td>
+      </tr>
+      <%end %>
+    </tbody>
+  </table>
+
+</section>

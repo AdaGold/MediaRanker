@@ -2,4 +2,21 @@
 <p>
   (originally upvotes/index)
 </p>
-<p><%= link_to "All Media", works_path %></p>
+<!-- using limit and no sorting -->
+<section>
+  <h2>Top Albums</h2>
+  <% @albums.each do |item| %>
+    <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
+  <%end %>
+
+  <h2>Top Books</h2>
+    <% @books.each do |item| %>
+      <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
+    <%end %>
+
+  <h2>Top Movies</h2>
+    <% @movies.each do |item| %>
+      <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
+    <%end %>
+
+</section>
