@@ -8,6 +8,8 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find_by(id: params[:id])
+    @upvotes = Upvote.where(work_id: params[:id])
+    @users = User.all
   end
 
   def new

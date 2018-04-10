@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @upvotes = Upvote.where(id: params[:id])
+    @upvotes = Upvote.where(user_id: params[:id])
     @works = Work.all
   end
 
