@@ -1,2 +1,4 @@
-<h1>Works#edit</h1>
-<p>Find me in app/views/works/edit.html.erb</p>
+<header>
+  <h1>Edit this <%= @work.category.downcase %></h1>
+</header>
+<%= render partial: "form" %>

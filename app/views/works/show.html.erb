@@ -2,3 +2,7 @@
 <p>Created by: <%= @work.creator %></p>
 <p>Published: <%= @work.publication_year %></p>
 <p>Category: <%= @work.category %></p>
+<% if @work.description %>
+  <p>Description: <%= @work.description %></p>
+<% end %>
+<%= link_to "Edit", edit_work_path(@work.id) %>
