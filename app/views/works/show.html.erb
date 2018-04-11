@@ -11,7 +11,7 @@
 </section>
 
 <section>
-  <h1><%= @upvotes.count %> vote(s) for this <%= @work.category.downcase %></h1>
+  <h1><%= @work.get_count %> vote(s) for this <%= @work.category.downcase %></h1>
   <table>
     <thead>
       <tr>
@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-        <% @upvotes.each do |item| %>
+        <% @work.upvotes.each do |item| %>
         <tr>
         <td><%= link_to item.user.username, user_path(item.user.id) %></td>
         <td><%= item.vote_date %></td>

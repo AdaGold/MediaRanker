@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+  before_action :find_user
   def index
     @works = Work.all
     @books = Work.where(category: "Book")
@@ -8,8 +9,6 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find_by(id: params[:id])
-    @upvotes = Upvote.where(work_id: params[:id])
-    @users = User.all
   end
 
   def new

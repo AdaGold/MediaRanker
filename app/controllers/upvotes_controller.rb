@@ -1,9 +1,9 @@
 class UpvotesController < ApplicationController
+  before_action :find_user
   def index
-    @books = Work.where(category: "Book").limit(5)
-    @albums = Work.where(category: "Album").limit(5)
-
-    @movies = Work.where(category: "Movie")
+    @books = Work.get_sorted_works("Book")
+    @albums = Work.get_sorted_works("Album")
+    @movies = Work.get_sorted_works("Movie")
 
     # Upvote.group(:work_id).order('count_id DESC').limit(2).count(:id)
 
