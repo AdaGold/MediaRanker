@@ -15,9 +15,14 @@ class UpvotesController < ApplicationController
     @count = top.flatten[1]
   end
 
+  def new
+    @upvote = Upvote.new
+  end
+
   def create
     @upvote = Upvote.create(upvote_params)
   end
+
 
   def destroy
     @vote = Upvote.find_by(id: params[:id])
