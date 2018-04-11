@@ -28,7 +28,7 @@
         </li>
         <% if @user %>
             <li>
-              <%= @user.name %>
+              <%= @user.username %>
               <%= link_to "Logout", logout_path, method: :delete %>
             </li>
             <% else %>
@@ -41,13 +41,23 @@
     <main>
       <section class="flash">
         <% flash.each do |name, message| %>
-          <section class="<%= name %>">
-          <p>
-          <%= message %>
-          </p>
+          <section class="callout <%= name %>">
+            <% if name == "alert" %>
+            <ul>
+              <% flash[:alert].each do |field, message| %>
+                <li>
+                <strong><%= field %>: </strong>
+                  <%= message %>
+                </li>
+                <% end %>
+            </ul>
+            <% else %>
+            <p>
+              <%= message %>
+            </p>
           <% end %>
           </section>
-
+          <% end %>
       </section>
       <section>
         <%= yield %>

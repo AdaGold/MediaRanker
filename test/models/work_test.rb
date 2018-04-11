@@ -72,6 +72,8 @@ describe Work do
         work.upvotes.last.must_equal vote
       end
     end
+
+    #test methods
   end
 
 
