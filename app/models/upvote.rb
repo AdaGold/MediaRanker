@@ -2,7 +2,7 @@ class Upvote < ApplicationRecord
   belongs_to :user
   belongs_to :work
 
-  # validates_uniqueness_of :user_id, scope: :work_id
+  validates_uniqueness_of :user_id, scope: :work_id
 
   def featured
     tallied = self.group(:work_id).count
