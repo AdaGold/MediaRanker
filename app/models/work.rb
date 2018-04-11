@@ -7,4 +7,9 @@ class Work < ApplicationRecord
 
   validates :publication_year, presence: true, numericality: {only_integer: true, greater_than: 0, less_than_or_equal_to: Date.current.year}
 
+  def get_count
+    return upvotes.size
+  end
+
+
 end

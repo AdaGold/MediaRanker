@@ -40,8 +40,16 @@ class WorksController < ApplicationController
 
   def destroy
     @work = Work.find_by(id: params[:id])
+    @work.destroy
+
     if @work
-      @work.destroy
+      @work.upvotes.each do |upvote|
+        upvote.destroy
+      end
+      if Work.find_by(id: params[:id]).nil?
+        flash[:success] = "#{@work.title} deleted"
+        redirect_back fallback_location: :works_path
+      end
     end
     redirect_to works_path
   end
@@ -50,7 +58,6 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    return params.require(:work).permit(:title, :category, :creator, :publication_year, :description)
+    return params.require(:work).permit(:title, :category, :creator, :publication_year, :description, :votes)
   end
-
 end

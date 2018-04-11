@@ -26,6 +26,16 @@
         <li>
           <%= link_to "View all users", users_path %>
         </li>
+        <% if @user %>
+            <li>
+              <%= @user.name %>
+              <%= link_to "Logout", logout_path, method: :delete %>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to "Login", login_path %>
+            </li>
+          <% end %>
       </ul>
     </nav>
     <main>

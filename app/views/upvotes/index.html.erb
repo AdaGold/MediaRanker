@@ -10,6 +10,7 @@
   <h2>Media Spotlight:  <%= @featured.title %> by <%= @featured.creator %></h2>
   <p>
     <%= @count %> votes - <%= @featured.description %>
+
   </p>
 </section>
 
@@ -17,16 +18,22 @@
   <h2>Top Albums</h2>
   <% @albums.each do |item| %>
     <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
+    <%= item.upvotes.count %> votes
+    <br /><br />
   <%end %>
 
   <h2>Top Books</h2>
     <% @books.each do |item| %>
       <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
+      <%= item.upvotes.count %> votes
+      <br /><br />
     <%end %>
 
   <h2>Top Movies</h2>
     <% @movies.each do |item| %>
       <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
+      <%= item.upvotes.count %> votes
+      <br /><br />
     <%end %>
 
 </section>

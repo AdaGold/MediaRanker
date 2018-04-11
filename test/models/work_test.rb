@@ -65,6 +65,12 @@ describe Work do
         work.valid?.must_equal false
         work.errors.must_include :publication_year
       end
+
+      it "registers new votes" do
+        work = works(:pride)
+        vote = Upvote.create! work: work, user: users(:lily)
+        work.upvotes.last.must_equal vote
+      end
     end
   end
 
