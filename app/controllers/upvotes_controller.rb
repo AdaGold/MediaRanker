@@ -5,14 +5,8 @@ class UpvotesController < ApplicationController
     @albums = Work.get_sorted_works("Album")
     @movies = Work.get_sorted_works("Movie")
 
-    # Upvote.group(:work_id).order('count_id DESC').limit(2).count(:id)
+    @featured, @count = Upvote.featured
 
-    tallied = Upvote.group(:work_id).count
-    top = tallied.select {|k,v| v == tallied.values.max }
-
-    @featured = Work.find_by(id: top.flatten[0])
-
-    @count = top.flatten[1]
   end
 
   def new
@@ -20,7 +14,20 @@ class UpvotesController < ApplicationController
   end
 
   def create
-    @upvote = Upvote.create(upvote_params)
+    if @user
+      user = @user.id
+      work = params[:work_id]
+      created = Date.today
+
+      @upvote = Upvote.create(work_id: work, user_id: user, vote_date: created)
+
+      if @upvote.save
+        flash[:success] = "#{@upvote.work.title} upvoted"
+      end
+    else
+      flash[:alert] = {user: "Must log in to do that!"}
+    end
+    redirect_to works_path
   end
 
 
@@ -32,7 +39,7 @@ class UpvotesController < ApplicationController
   private
 
   def upvote_params
-    return params.require(:upvote).permit(:user_id, :work_id, :created_at)
+    return params.require(:upvote).permit(:user_id, :work_id, :vote_date)
   end
 
 end

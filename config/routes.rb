@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 
   get 'upvotes/index'
 
-  post '/upvotes', to: 'upvotes#create', as: 'upvote'
+  # post '/upvotes', to: 'upvotes#create', as: 'upvote'
 
-  resources :works
+  resources :works do
+    resources :upvotes, only: [:create]
+  end
+
   resources :users, except: [:edit, :update, :new, :create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
