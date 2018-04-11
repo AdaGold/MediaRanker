@@ -8,6 +8,7 @@
         <th>Title</th>
         <th>Creator</th>
         <th>Published</th>
+        <th>Upvote</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
         <th>Title</th>
         <th>Creator</th>
         <th>Published</th>
+        <th>Upvote</th>
       </tr>
     </thead>
     <tbody>
@@ -37,6 +39,7 @@
         <td><%= link_to item.title, work_path(item.id) %></td>
         <td><%= item.creator %></td>
         <td><%= item.publication_year %></td>
+        <td><%= button_to "Upvote", work_upvotes_path(item.id) %></td>
       </tr>
       <%end %>
     </tbody>
@@ -49,6 +52,7 @@
         <th>Title</th>
         <th>Creator</th>
         <th>Published</th>
+        <th>Upvote</th>
       </tr>
     </thead>
     <tbody>
@@ -57,6 +61,7 @@
         <td><%= link_to item.title, work_path(item.id) %></td>
         <td><%= item.creator %></td>
         <td><%= item.publication_year %></td>
+        <td><%= button_to "Upvote", work_upvotes_path(item.id) %></td>
       </tr>
       <%end %>
     </tbody>
