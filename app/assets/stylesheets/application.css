@@ -70,16 +70,17 @@ main {
 
 /* HOME PAGE */
 
-* {
+/* * {
   border: solid black .5px;
-}
+} */
 
- h3 {
+ .media-spotlight h3 {
   color: #424242;
 }
 
 .media-spotlight {
   padding: 0 2rem 2rem 2rem;
+  border-bottom: solid #424242; .1em;
 }
 
 .media-spotlight h3 #spotlight {
@@ -96,14 +97,13 @@ main {
 }
 
 .top-ten article {
-  margin-right: 3em;
-
+  width: 27%;
+  margin-right: 5%;
 }
 
 .top-ten article:last-of-type {
-  margin-right: 0px;
+  margin-right: 0%;
 }
-
 
 .top-ten h2 {
   color: #26A69A;
@@ -117,9 +117,15 @@ main {
 
 .top-ten ul {
   list-style-type: none;
+  margin-left: 0;
 }
 
 .top-ten li {
   margin-bottom: 1em;
-  text-align: center;
+}
+
+/* ALL WORKS */
+
+#green-head {
+  color: #26A69A;
 }

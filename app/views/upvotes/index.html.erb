@@ -1,9 +1,3 @@
-<section >
-  <div>
-    <h3></h3>
-  </div>
-</section>
-
 <section class="media-spotlight">
   <h3>
     <span>Media Spotlight: </span>
@@ -29,7 +23,7 @@
   <ul>
     <% @books.each do |item| %>
     <li>
-      <%= link_to item.title, work_path(item.id) %> by <%= item.creator %><br />
+      <%= link_to item.title, work_path(item.id) %> <small>by <%= item.creator %></small><br />
       <%= item.upvotes.count %> votes
     </li>
     <%end %>
@@ -42,7 +36,7 @@
   <ul>
     <% @albums.each do |item| %>
     <li>
-      <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
+      <%= link_to item.title, work_path(item.id) %> <small>by <%= item.creator %></small><br />
       <%= item.upvotes.count %> votes
     </li>
     <%end %>

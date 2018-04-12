@@ -1,19 +1,19 @@
 <section>
-  <h1><%= @work.title %></h1>
+  <h3 id="green-head"><%= @work.title %></h3>
   <p>Created by: <%= @work.creator %></p>
   <p>Published: <%= @work.publication_year %></p>
   <% if @work.description %>
     <p>Description: <%= @work.description %></p>
   <% end %>
-  <%= link_to "Back to media ranks", works_path %>
-  <%= link_to "Edit", edit_work_path(@work.id) %>
-  <%= button_to "Upvote", work_upvotes_path(@work.id)%>
-  <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-
+  <a class="button" href="/works">Back to Media ranks</a>
+  <a class="button" href="/works/<%="#{@work.id}"%>/edit">Edit</a>
+  <% if @user %>
+    <a class="button" rel="nofollow" data-method="post" href="/works/<%="#{@work.id}"%>/upvotes">Upvote</a>
+    <a class="alert button" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/works/<%="#{@work.id}"%>">Delete</a>
+  <% end %>
 </section>
-
 <section>
-  <h1><%= @work.get_count %> vote(s) for this <%= @work.category.downcase %></h1>
+  <h3 id="green-head"><%= @work.get_count %> vote(s) for this <%= @work.category.downcase %></h3>
   <table>
     <thead>
       <tr>

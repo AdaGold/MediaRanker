@@ -1,6 +1,6 @@
-<h1>All Media</h1>
+<h3 id="green-head">List of Works</h3>
 
-<section>
+<section class="media-table">
   <h2>Albums</h2>
   <table>
     <thead>
@@ -8,7 +8,11 @@
         <th>Title</th>
         <th>Creator</th>
         <th>Published</th>
-        <th>Upvote</th>
+        <% if @user %>
+          <th>Upvote</th>
+        <% else %>
+          <th>Votes</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -17,12 +21,17 @@
         <td><%= link_to item.title, work_path(item.id) %></td>
         <td><%= item.creator %></td>
         <td><%= item.publication_year %></td>
-        <td><%= button_to "Upvote", work_upvotes_path(item.id) %></td>
+        <% if @user %>
+          <td><a class="button" rel="nofollow" data-method="post" href="/works/<%="#{item.id}"%>/upvotes">Upvote</a></td>
+        <% else %>
+          <th><%= item.get_count %></th>
+        <% end %>
       </tr>
       <%end %>
     </tbody>
   </table>
-
+</section>
+<section class="media-table">
   <h2>Books</h2>
   <table>
     <thead>
@@ -30,21 +39,30 @@
         <th>Title</th>
         <th>Creator</th>
         <th>Published</th>
-        <th>Upvote</th>
+        <% if @user %>
+          <th>Upvote</th>
+        <% else %>
+          <th>Votes</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
-        <% @books.each do |item| %>
+      <% @books.each do |item| %>
         <tr>
         <td><%= link_to item.title, work_path(item.id) %></td>
         <td><%= item.creator %></td>
         <td><%= item.publication_year %></td>
-        <td><%= button_to "Upvote", work_upvotes_path(item.id) %></td>
-      </tr>
+        <% if @user %>
+          <td><a class="button" rel="nofollow" data-method="post" href="/works/<%="#{item.id}"%>/upvotes">Upvote</a></td>
+        <% else %>
+          <th><%= item.get_count %></th>
+        <% end %>
+        </tr>
       <%end %>
     </tbody>
   </table>
-
+</section>
+<section class="media-table">
   <h2>Movies</h2>
   <table>
     <thead>
@@ -52,7 +70,11 @@
         <th>Title</th>
         <th>Creator</th>
         <th>Published</th>
-        <th>Upvote</th>
+        <% if @user %>
+          <th>Upvote</th>
+        <% else %>
+          <th>Votes</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -61,10 +83,17 @@
         <td><%= link_to item.title, work_path(item.id) %></td>
         <td><%= item.creator %></td>
         <td><%= item.publication_year %></td>
-        <td><%= button_to "Upvote", work_upvotes_path(item.id) %></td>
+        <% if @user %>
+          <td><a class="button" rel="nofollow" data-method="post" href="/works/<%="#{item.id}"%>/upvotes">Upvote</a></td>
+        <% else %>
+          <th><%= item.get_count %></th>
+        <% end %>
       </tr>
       <%end %>
     </tbody>
   </table>
-
+</section>
+<section>
+  <a class="button" href="/">View top media</a>
+  <a class="button" href="/works/new">Add a new work</a>
 </section>
