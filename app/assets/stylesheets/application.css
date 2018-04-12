@@ -20,6 +20,11 @@
 
 
 /* NAVIGATION */
+
+body {
+  font-family: "Gudea", sans-serif;
+}
+
 body h2 a {
   color: #FF5722;
   padding-right: 25px;
@@ -35,12 +40,17 @@ header {
   padding: 25px 20px 10px 20px;
 }
 
+header a:hover {
+  color: #FF5722;
+}
+
 header h2 {
   margin-top: 25px;
   margin-bottom: 40px;
   text-align: center;
   margin: 25px auto 40px auto;
-  /* font-family: "Gudea", sans-serif; */
+  font-family: "Gudea", sans-serif;
+  font-weight: bold;
 }
 
 h2 small {
@@ -74,8 +84,16 @@ main {
   border: solid black .5px;
 } */
 
- .media-spotlight h3 {
+a {
+  color: #26A69A;
+}
+a:hover {
+  color: #00796B;
+}
+
+.media-spotlight h3 {
   color: #424242;
+  font-weight: bold;
 }
 
 .media-spotlight {
@@ -86,9 +104,6 @@ main {
 .media-spotlight h3 #spotlight {
   color: #26A69A;
 }
-
-/* margin: 0px auto 75px auto;
-    color: #EEEEEE; */
 
 .top-ten {
   display: flex;
@@ -105,14 +120,22 @@ main {
   margin-right: 0%;
 }
 
+#title {
+  color: #26A69A;
+  font-weight: bold;
+}
+
 .top-ten h2 {
   color: #26A69A;
+  font-weight: bold;
   border-bottom: 2px solid;
   border-bottom-color: #B2DFDB;
+
 }
 
 .top-ten small {
   color: slategrey;
+  font-weight: bold;
 }
 
 .top-ten ul {
@@ -128,4 +151,6 @@ main {
 
 #green-head {
   color: #26A69A;
+  font-family: "Gudea", sans-serif;
+  font-weight: bold;
 }

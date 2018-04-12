@@ -12,7 +12,7 @@
   <ul>
     <% @movies.each do |item| %>
     <li>
-      <%= link_to item.title, work_path(item.id) %> <small>by <%= item.creator %></small><br />
+      <div id="title"><%= link_to item.title, work_path(item.id) %></div> <small>by <%= item.creator %></small><br />
       <%= item.upvotes.count %> votes
     </li>
     <%end %>
@@ -23,7 +23,7 @@
   <ul>
     <% @books.each do |item| %>
     <li>
-      <%= link_to item.title, work_path(item.id) %> <small>by <%= item.creator %></small><br />
+      <div id="title"><%= link_to item.title, work_path(item.id) %></div> <small>by <%= item.creator %></small><br />
       <%= item.upvotes.count %> votes
     </li>
     <%end %>
@@ -33,10 +33,11 @@
 <article>
 
   <h2>Top Albums</h2>
+
   <ul>
     <% @albums.each do |item| %>
     <li>
-      <%= link_to item.title, work_path(item.id) %> <small>by <%= item.creator %></small><br />
+      <div id="title"><%= link_to item.title, work_path(item.id) %></div> <small>by <%= item.creator %></small><br />
       <%= item.upvotes.count %> votes
     </li>
     <%end %>
