@@ -2,9 +2,7 @@ class WorksController < ApplicationController
   before_action :find_user
   before_action :find_work
   def index
-    @books = Work.get_sorted_works("Book")
-    @albums = Work.get_sorted_works("Album")
-    @movies = Work.get_sorted_works("Movie")
+    @sorted = Work.categorized
   end
 
   def show

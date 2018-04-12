@@ -1,7 +1,7 @@
 <h3 id="green-head">List of Works</h3>
-
+<% @sorted.each do |group| %>
 <section class="media-table">
-  <h2>Albums</h2>
+  <h2><%= group.first.category %></h2>
   <table>
     <thead>
       <tr>
@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-        <% @albums.each do |item| %>
+        <% group.each do |item| %>
         <tr>
         <td><%= link_to item.title, work_path(item.id) %></td>
         <td><%= item.creator %></td>
@@ -31,69 +31,4 @@
     </tbody>
   </table>
 </section>
-<section class="media-table">
-  <h2>Books</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Creator</th>
-        <th>Published</th>
-        <% if @user %>
-          <th>Upvote</th>
-        <% else %>
-          <th>Votes</th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @books.each do |item| %>
-        <tr>
-        <td><%= link_to item.title, work_path(item.id) %></td>
-        <td><%= item.creator %></td>
-        <td><%= item.publication_year %></td>
-        <% if @user %>
-          <td><a class="button" rel="nofollow" data-method="post" href="/works/<%="#{item.id}"%>/upvotes">Upvote</a></td>
-        <% else %>
-          <th><%= item.get_count %></th>
-        <% end %>
-        </tr>
-      <%end %>
-    </tbody>
-  </table>
-</section>
-<section class="media-table">
-  <h2>Movies</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Creator</th>
-        <th>Published</th>
-        <% if @user %>
-          <th>Upvote</th>
-        <% else %>
-          <th>Votes</th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-        <% @movies.each do |item| %>
-        <tr>
-        <td><%= link_to item.title, work_path(item.id) %></td>
-        <td><%= item.creator %></td>
-        <td><%= item.publication_year %></td>
-        <% if @user %>
-          <td><a class="button" rel="nofollow" data-method="post" href="/works/<%="#{item.id}"%>/upvotes">Upvote</a></td>
-        <% else %>
-          <th><%= item.get_count %></th>
-        <% end %>
-      </tr>
-      <%end %>
-    </tbody>
-  </table>
-</section>
-<section>
-  <a class="button" href="/">View top media</a>
-  <a class="button" href="/works/new">Add a new work</a>
-</section>
+<% end %>
