@@ -8,6 +8,7 @@
   <% end %>
   <%= link_to "Edit", edit_work_path(@work.id) %>
   <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <td><%= button_to "Upvote", work_upvotes_path(@work.id)%></td>
 </section>
 
 <section>

@@ -11,15 +11,12 @@ class Upvote < ApplicationRecord
 
   def self.top
     hash = Upvote.tallied
-
     chosen = hash.select {|k,v| v == hash.values.max }.keys.first
-
     return chosen
   end
 
   def self.featured_work
     id = Upvote.top
-
     featured = Work.find_by(id: id)
     return featured
   end

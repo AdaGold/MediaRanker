@@ -24,9 +24,9 @@ class UpvotesController < ApplicationController
         flash[:success] = "#{@upvote.work.title} upvoted"
       end
     else
-      flash[:alert] = {user: "Must log in to do that!"}
+      flash.now[:alert] = {user: "Must log in to do that!"}
     end
-    redirect_to works_path
+    redirect_back fallback_location: :works_path
   end
 
 
