@@ -18,13 +18,26 @@
 
  */
 
+ /* MAIN */
+ main {
+   display: block;
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+ }
+
+ body {
+   font-family: "Gudea", sans-serif;
+ }
+
+ .callout.success {
+   background-color: #e6e6e6;
+ }
+
+ .callout.alert {
+   background-color: #e6e6e6;
+ }
 
 /* NAVIGATION */
-
-body {
-  font-family: "Gudea", sans-serif;
-}
-
 body h2 a {
   color: #FF5722;
   padding-right: 25px;
@@ -69,14 +82,6 @@ h2 small {
 .button:hover {
   background-color: #00796B;
 }
-
-/* MAIN */
-main {
-  display: block;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
 
 /* HOME PAGE */
 a {
@@ -154,3 +159,10 @@ a:hover {
   font-family: "Gudea", sans-serif;
   font-weight: bold;
 }
+
+.type {
+  font-family: "Gudea", sans-serif;
+  font-weight: bold;
+}
+
+ /* MAIN */

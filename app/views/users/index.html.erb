@@ -14,7 +14,7 @@
         <tr>
         <td><%= link_to item.username, user_path(item.id) %></td>
         <td><%= item.get_count %></td>
-        <td><%= item.join_date %></td>
+        <td><%= item.join_date.to_formatted_s(:long) %></td>
       </tr>
       <%end %>
     </tbody>

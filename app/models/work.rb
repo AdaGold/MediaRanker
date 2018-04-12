@@ -23,9 +23,8 @@ class Work < ApplicationRecord
   end
 
   def self.categorized
-    types = ["Book", "Album", "Movie"]
+    types = ["Album", "Book", "Movie"]
     organized = types.map {|medium| get_sorted_works(medium)}
     return organized
   end
-
 end
