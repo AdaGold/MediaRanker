@@ -35,15 +35,15 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @work.destroy
-
     if @work
       @work.upvotes.each do |upvote|
         upvote.destroy
       end
+
+      @work.destroy
+
       if Work.find_by(id: params[:id]).nil?
         flash[:success] = "#{@work.title} deleted"
-        redirect_back fallback_location: :works_path
       end
     end
     redirect_to works_path

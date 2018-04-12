@@ -43,4 +43,14 @@ describe Upvote do
       second.errors.messages.must_include :user_id
     end
   end
+
+  describe "self.featured" do
+    it "returns the highest voted item" do
+      work = works(:kindred)
+      top_work = Upvote.featured_work
+
+      top_work.must_equal work
+    end
+  end
+
 end

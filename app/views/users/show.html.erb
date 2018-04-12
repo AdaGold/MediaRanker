@@ -18,7 +18,7 @@
         <td><%= item.work.creator %></td>
         <td><%= item.work.publication_year %></td>
         <td><%= item.work.category %></td>
-        <td><%= item.vote_date %></td>
+        <td><%= item.vote_date.to_formatted_s(:long) %></td>
       </tr>
       <%end %>
     </tbody>

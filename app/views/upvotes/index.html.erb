@@ -9,7 +9,7 @@
 <section>
   <h2>Media Spotlight:  <%= @featured.title %> by <%= @featured.creator %></h2>
   <p>
-    <%= @count %> votes - <%= @featured.description %>
+    <%= @featured.get_count %> votes - <%= @featured.description %>
 
   </p>
 </section>

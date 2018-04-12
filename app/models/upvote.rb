@@ -4,14 +4,24 @@ class Upvote < ApplicationRecord
 
   validates_uniqueness_of :user_id, scope: :work_id
 
-  def self.featured
-    tallied = Upvote.group(:work_id).count
-    top = tallied.select {|k,v| v == tallied.values.max }
-
-    featured = Work.find_by(id: top.flatten[0])
-
-    count = top.flatten[1]
-
-    return featured, count
+  def self.tallied
+    ordered_hash = Upvote.group(:work_id).count
+    return ordered_hash
   end
+
+  def self.top
+    hash = Upvote.tallied
+
+    chosen = hash.select {|k,v| v == hash.values.max }.keys.first
+
+    return chosen
+  end
+
+  def self.featured_work
+    id = Upvote.top
+
+    featured = Work.find_by(id: id)
+    return featured
+  end
+
 end

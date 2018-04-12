@@ -10,9 +10,11 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "Wecome back #{@user.username}"
     else
-      @user = User.create username: params[:user][:username]
+      user = params[:user][:username]
+      date = Date.today
+      @user = User.create(username: user, join_date: date)
       session[:user_id] = @user.id
-      flash[:success] = "Wecome #{@user.usersname}"
+      flash[:success] = "Wecome #{@user.username}"
     end
 
     redirect_to root_path
