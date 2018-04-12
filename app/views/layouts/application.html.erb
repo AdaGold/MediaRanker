@@ -28,7 +28,7 @@
         </li>
         <% if @user %>
             <li>
-              <%= @user.username %>
+              <%= link_to "Logged in as #{@user.username}", user_path(@user.id) %>
               <%= link_to "Log Out", logout_path, method: :delete %>
             </li>
             <% else %>
@@ -44,7 +44,7 @@
           <section class="callout <%= name %>">
             <% if name == "alert" %>
             <ul>
-              <% flash[:alert].each do |field, message| %>
+              <% flash.each do |field, message| %>
                 <li>
                 <strong><%= field %>: </strong>
                   <%= message %>

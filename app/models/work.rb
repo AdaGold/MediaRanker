@@ -19,7 +19,7 @@ class Work < ApplicationRecord
   def self.get_sorted_works(type)
     works = get_works(type)
     sorted = works.sort_by {|item| item.get_count}.reverse
-    return sorted
+    return sorted.first(10)
   end
 
 end

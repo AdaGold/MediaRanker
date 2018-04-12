@@ -22,6 +22,8 @@ class UpvotesController < ApplicationController
 
       if @upvote.save
         flash[:success] = "#{@upvote.work.title} upvoted"
+      else
+        flash[:alert] = {user: "Already voted on that!"}
       end
     else
       flash.now[:alert] = {user: "Must log in to do that!"}

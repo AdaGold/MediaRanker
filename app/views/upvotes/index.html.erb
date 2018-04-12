@@ -2,12 +2,10 @@
 <p>
   (originally upvotes/index)
 </p>
-<!-- using limit and no sorting -->
-<!-- consider adding a vote count to work -->
-<!-- Top media are always first two in category currently -->
+<!-- using limit? -->
 
 <section>
-  <h2>Media Spotlight:  <%= @featured.title %> by <%= @featured.creator %></h2>
+  <h2>Media Spotlight:  <%= link_to @featured.title, work_path(@featured.id) %> by <%= @featured.creator %></h2>
   <p>
     <%= @featured.get_count %> votes - <%= @featured.description %>
 
