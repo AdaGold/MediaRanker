@@ -79,11 +79,6 @@ main {
 
 
 /* HOME PAGE */
-
-/* * {
-  border: solid black .5px;
-} */
-
 a {
   color: #26A69A;
 }
@@ -98,14 +93,19 @@ a:hover {
 
 .media-spotlight {
   padding: 0 2rem 2rem 2rem;
-  border-bottom: solid #424242; .1em;
+  border-bottom: solid lightgrey 1px;
 }
 
 .media-spotlight h3 #spotlight {
   color: #26A69A;
 }
 
+.media-spotlight h3 #spotlight span {
+  text-decoration: underline;
+}
+
 .top-ten {
+  padding-top: 1em;
   display: flex;
   flex-direction: row;
   justify-content: center;

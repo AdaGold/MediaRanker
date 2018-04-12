@@ -1,15 +1,15 @@
 <section class="media-spotlight">
   <h3>
     <span>Media Spotlight: </span>
-    <div id="spotlight"><%= link_to @featured.title, work_path(@featured.id) %> by <%= @featured.creator %></div></h3>
+    <span id="spotlight"><span><%= link_to @featured.title, work_path(@featured.id) %></span> by <%= @featured.creator %></span></h3>
   <p>
     <%= @featured.get_count %> votes - <%= @featured.description %></p>
 </section>
 
 <section class="top-ten">
-  <% @sort.each do |groups| %>
+  <% @sorted.each do |groups| %>
   <article>
-    <h2><%= groups.first.category %></h2>
+    <h2>Top <%= groups.first.category %>s</h2>
     <ul>
       <% groups.each do |type| %>
       <li>
@@ -23,6 +23,4 @@
     </ul>
   </article>
   <% end %>
-
-
 </section>
