@@ -20,5 +20,4 @@ class Upvote < ApplicationRecord
     featured = Work.find_by(id: id)
     return featured
   end
-
 end

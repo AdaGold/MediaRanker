@@ -5,6 +5,8 @@ class UpvotesController < ApplicationController
     @albums = Work.get_sorted_works("Album")
     @movies = Work.get_sorted_works("Movie")
 
+    @sort = Work.categorized
+
     @featured = Upvote.featured_work
   end
 

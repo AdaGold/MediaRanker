@@ -22,4 +22,15 @@ class Work < ApplicationRecord
     return sorted.first(10)
   end
 
+  def self.categorized
+    organized = []
+    books = get_sorted_works("Book")
+    albums = get_sorted_works("Album")
+    movies = get_sorted_works("Movie")
+    organized << books
+    organized << albums
+    organized << movies
+    return organized
+  end
+
 end

@@ -1,0 +1,11 @@
+
+  <h2><%= type.first.category %></h2>
+  <ul>
+    <%= type.each do |item| %>
+    <li>
+      <div id="title"><%= link_to item.title, work_path(item.id) %></div>
+      <small>by <%= item.creator %></small><br />
+      <%= item.upvotes.count %> votes
+    </li>
+    <%end %>
+  </ul>
