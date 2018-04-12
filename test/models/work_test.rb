@@ -109,7 +109,7 @@ describe Work do
 
   describe "self.get_sorted_works(type)" do
     it "returns sorted works of the same category" do
-      works = Work.get_works("Book")
+      works = Work.get_sorted_works("Book")
       works.first.must_equal works(:pride)
       works.last.must_equal works(:poodr)
     end

@@ -7,4 +7,8 @@ class User < ApplicationRecord
     return upvotes.count
   end
 
+  def self.get_user(input)
+    return User.find_by(id: input).username
+  end
+
 end

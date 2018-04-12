@@ -5,11 +5,11 @@
   <% if @work.description %>
     <p>Description: <%= @work.description %></p>
   <% end %>
-  <a class="button" href="/works">Back to Media ranks</a>
-  <a class="button" href="/works/<%="#{@work.id}"%>/edit">Edit</a>
+  <%= link_to "Back to Media ranks", root_path, class: "button" %>
+  <%= link_to "Edit", edit_work_path(@work.id), class: "button" %>
   <% if @user %>
-    <a class="button" rel="nofollow" data-method="post" href="/works/<%="#{@work.id}"%>/upvotes">Upvote</a>
-    <a class="alert button" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/works/<%="#{@work.id}"%>">Delete</a>
+    <%= button_to "Upvote", work_upvotes_path(@work.id), class: "button" %>
+    <%= button_to "Delete", work_path(@work.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert" %>
   <% end %>
 </section>
 <section>

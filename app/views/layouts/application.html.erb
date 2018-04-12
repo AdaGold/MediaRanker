@@ -14,22 +14,21 @@
   <body>
     <header>
       <h2>
-        <a href="/">Media Ranker</a>
+        <%= link_to "Media Ranker", root_path %>
         <small>Ranking the Best of Everything</small>
       </h2>
       <nav>
-        <a class="button" href="/">View top media</a>
-        <a class="button" href="/works">View all media</a>
-        <a class="button" href="/works/new">Add a new work</a>
-        <a class="button" href="/users">View all users</a>
-          <div class="float-right">
-            <% if @user %>
-            <a class="button" href="/users/<%="#{@user.id}"%>"><%= "Logged in as #{@user.username}" %></a>
-            <a class="button" rel="nofollow" data-method="delete" href="/login">Log Out</a>
-            <% else %>
-            <a class="button" href="/login">Log In</a>
-            <% end %>
-          </div>
+        <%= link_to "View top media", root_path, class: "button" %>
+        <%= link_to "View all media", works_path, class: "button" %>
+        <%= link_to "Add a new work", new_work_path, class: "button" %>
+        <%= link_to "View all users", users_path, class: "button" %>
+        <div class="float-right">
+        <% if session[:user_id]%>
+            <%= button_to "Logged in as #{User.get_user(session[:user_id])}" , user_path(session[:user_id]), method: :get, class: "button"%><%= button_to "Log Out", logout_path, method: :delete, class: "button" %>
+        <% else %>
+            <%= link_to "Log In", login_path, class: "button" %>
+        <% end %>
+        </div>
       </nav>
     </header>
     <main>
