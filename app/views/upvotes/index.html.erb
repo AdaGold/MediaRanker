@@ -1,37 +1,51 @@
-<h1>HOME PAGE</h1>
-<p>
-  (originally upvotes/index)
-</p>
-<!-- using limit? -->
-
-<section>
-  <h2>Media Spotlight:  <%= link_to @featured.title, work_path(@featured.id) %> by <%= @featured.creator %></h2>
-  <p>
-    <%= @featured.get_count %> votes - <%= @featured.description %>
-
-  </p>
+<section >
+  <div>
+    <h3></h3>
+  </div>
 </section>
 
-<section>
-  <h2>Top Albums</h2>
-  <% @albums.each do |item| %>
-    <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
-    <%= item.upvotes.count %> votes
-    <br /><br />
-  <%end %>
+<section class="media-spotlight">
+  <h3>
+    <span>Media Spotlight: </span>
+    <div id="spotlight"><%= link_to @featured.title, work_path(@featured.id) %> by <%= @featured.creator %></div></h3>
+  <p>
+    <%= @featured.get_count %> votes - <%= @featured.description %></p>
+</section>
 
-  <h2>Top Books</h2>
-    <% @books.each do |item| %>
-      <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
-      <%= item.upvotes.count %> votes
-      <br /><br />
-    <%end %>
-
+<section class="top-ten">
+<article>
   <h2>Top Movies</h2>
+  <ul>
     <% @movies.each do |item| %>
+    <li>
+      <%= link_to item.title, work_path(item.id) %> <small>by <%= item.creator %></small><br />
+      <%= item.upvotes.count %> votes
+    </li>
+    <%end %>
+  </ul>
+</article>
+<article>
+  <h2>Top Books</h2>
+  <ul>
+    <% @books.each do |item| %>
+    <li>
+      <%= link_to item.title, work_path(item.id) %> by <%= item.creator %><br />
+      <%= item.upvotes.count %> votes
+    </li>
+    <%end %>
+  </ul>
+
+</article>
+<article>
+
+  <h2>Top Albums</h2>
+  <ul>
+    <% @albums.each do |item| %>
+    <li>
       <%= link_to item.title, work_path(item.id) %> By <%= item.creator %><br />
       <%= item.upvotes.count %> votes
-      <br /><br />
+    </li>
     <%end %>
-
+  </ul>
+</article>
 </section>
