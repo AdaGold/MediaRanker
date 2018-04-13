@@ -18,11 +18,16 @@
 
  */
 
+
+
  /* MAIN */
  main {
    display: block;
    padding-top: 2rem;
    padding-bottom: 2rem;
+   align-content: center;
+   padding-left: 1%;
+   padding-right: 1%;
  }
 
  body {
@@ -31,12 +36,22 @@
 
  .callout.success {
    background-color: #e6e6e6;
+   color: #8a8a8a;
+   border-radius: 5px;
+   border: none;
  }
 
  .callout.alert {
+   font-family: "Gudea", sans-serif;
    background-color: #e6e6e6;
+   color: #8a8a8a;
+   border-radius: 5px;
+   border: none;
  }
-
+.callout.alert h3{
+  color: #C70039;
+  font-size: 1em;
+}
 /* NAVIGATION */
 body h2 a {
   color: #FF5722;
@@ -153,7 +168,6 @@ a:hover {
 }
 
 /* ALL WORKS */
-
 #green-head {
   color: #26A69A;
   font-family: "Gudea", sans-serif;
@@ -165,4 +179,19 @@ a:hover {
   font-weight: bold;
 }
 
- /* MAIN */
+ /* Log In */
+#logged {
+  font-weight: bold;
+}
+
+/* * {
+  border: black solid 1px;
+} */
+
+/* SMALL SCREEN */
+@media screen and (max-width: 600px) {
+  header {
+    margin-bottom: 40px;
+    padding-bottom: 50px;
+  }
+  }

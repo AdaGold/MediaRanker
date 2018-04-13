@@ -15,6 +15,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
+      flash[:success] = "#{@work.title} created"
       redirect_to works_path
     else
       render :new

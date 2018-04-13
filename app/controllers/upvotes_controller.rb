@@ -2,7 +2,6 @@ class UpvotesController < ApplicationController
   before_action :find_user
   def index
     @sorted = Work.categorized
-
     @featured = Upvote.featured_work
   end
 
@@ -21,10 +20,10 @@ class UpvotesController < ApplicationController
       if @upvote.save
         flash[:success] = "#{@upvote.work.title} upvoted"
       else
-        flash[:alert] = {user: "Already voted on that!"}
+        flash[:alert] = "You already voted on that!"
       end
     else
-      flash.now[:alert] = {user: "Must log in to do that!"}
+      flash.now[:alert] = "Must log in to do that!"
     end
     redirect_back fallback_location: :works_path
   end
