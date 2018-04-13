@@ -7,11 +7,9 @@ class User < ApplicationRecord
     return upvotes.count
   end
 
-  def self.get_user(input)
-    @user = User.find_by(id: input)
-    if @user != nil
-      return @user
-    end
+  def self.get_username(input)
+    @logged = User.find_by(id: input)
+    return @logged.username if @logged
   end
 
 end
