@@ -223,8 +223,11 @@ a:hover {
 
 /* SMALL SCREEN */
 @media screen and (max-width: 600px) {
-  header .title-bar {
+  .title-bar {
     max-height: 50px;
-    min-width: 390px;
+  }
+
+  .title-bar h2 {
+    font-size: 1em;
   }
   }
