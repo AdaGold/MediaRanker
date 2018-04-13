@@ -221,10 +221,6 @@ a:hover {
   font-weight: bold;
 }
 
-/* * {
-  border: black solid 1px;
-} */
-
 /* SMALL SCREEN */
 @media screen and (max-width: 600px) {
   header .title-bar {
