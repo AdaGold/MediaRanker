@@ -8,7 +8,10 @@ class User < ApplicationRecord
   end
 
   def self.get_user(input)
-    return User.find_by(id: input).username
+    @user = User.find_by(id: input)
+    if @user != nil
+      return @user
+    end
   end
 
 end
