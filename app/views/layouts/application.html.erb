@@ -16,7 +16,56 @@
         <%= link_to "Media Ranker", root_path %>
         <small>Ranking the Best of Everything</small>
       </h2>
-      <nav>
+      <div class="title-bar" data-responsive-toggle="main-nav" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle="main-nav"></button>
+      <div class="title-bar-title">Menu</div>
+  </div>
+
+  <div class="top-bar" id="main-nav">
+    <div class="top-bar-left">
+      <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
+        <li>
+          <%= link_to "View top media", root_path, class: "button" %>
+        </li>
+        <li><%= link_to "View all media", works_path, class: "button" %>
+        <li><%= link_to "Add a new work", new_work_path, class: "button" %></li>
+        <li><%= link_to "View all users", users_path, class: "button" %></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <% if session[:user_id] != nil %>
+          <li><%= link_to "Logged in as #{User.get_username(session[:user_id])}" , user_path(session[:user_id]), method: :get, class: "button"%></li>
+          <li><%= link_to "Log Out", logout_path, method: :delete, class: "button" %></li>
+        <% else %>
+          <li><%= link_to "Log In", login_path, class: "button" %></li>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="panel">
+      <h2>
+        <%= link_to "Media Ranker", root_path %>
+        <small>Ranking the Best of Everything</small>
+      </h2>
+      <nav class="show-for-large-up">
         <%= link_to "View top media", root_path, class: "button" %>
         <%= link_to "View all media", works_path, class: "button" %>
         <%= link_to "Add a new work", new_work_path, class: "button" %>
@@ -30,7 +79,10 @@
         <% end %>
         </div>
       </nav>
+      </nav>
+
     </header>
+
     <main>
       <section class="flash">
         <% flash.each do |name, message| %>
@@ -56,5 +108,13 @@
         <%= yield %>
       </section>
     </main>
+
+  <!-- close the off-canvas menu -->
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
+
+
   </body>
 </html>

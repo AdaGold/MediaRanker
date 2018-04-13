@@ -98,6 +98,21 @@ h2 small {
   background-color: #00796B;
 }
 
+.title-bar {
+  background-color: #B2DFDB;
+}
+
+#main-nav .button {
+  background-color: #26A69A;
+  text-align: left;
+  margin-bottom: .25em;
+  margin-right: .25em;
+}
+
+#main-nav .button:hover {
+  background-color: #00796B;
+}
+
 /* HOME PAGE */
 a {
   color: #26A69A;
