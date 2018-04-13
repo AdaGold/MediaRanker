@@ -79,7 +79,7 @@ header h2 {
   text-align: center;
   margin: 25px auto 40px auto;
   font-family: "Gudea", sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 h2 small {
@@ -109,15 +109,6 @@ div.title-bar {
   margin-right: .25em;
   padding-right: .5em;
   border-right: none;
-
-}
-
-header {
-  max-width: 100%;
-  background-color: #B2DFDB;
-  border-bottom: 1px solid #EEEEEE;
-  margin-bottom: 10px;
-  padding: 25px 20px 10px 20px;
 }
 
 /* RESPONSIVE NAV */
@@ -148,18 +139,18 @@ a:hover {
 .media-spotlight h3 {
   color: #424242;
   font-weight: bold;
+  padding: 0 2rem 0 2rem;
+
 }
 
-.media-spotlight {
+.media-spotlight p {
   padding: 0 2rem 2rem 2rem;
   border-bottom: solid lightgrey 1px;
 }
 
-.media-spotlight h3 #spotlight {
+#spotlight span {
   color: #26A69A;
-}
-
-.media-spotlight h3 #spotlight span {
+  font-weight: bold;
   text-decoration: underline;
 }
 
@@ -229,3 +220,8 @@ a:hover {
     max-height: 50px;
   }
   }
+
+
+/* * {
+  border: solid black .5px;
+} */
