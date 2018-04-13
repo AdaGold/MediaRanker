@@ -225,5 +225,6 @@ a:hover {
 @media screen and (max-width: 600px) {
   header .title-bar {
     max-height: 50px;
+    min-width: 390px;
   }
   }
