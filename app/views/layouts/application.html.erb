@@ -12,14 +12,19 @@
 
   <body>
     <header>
+      <div >
+        <h2 class="hide-for-small-only"><%= link_to "Media Ranker", root_path %><small>Ranking the Best of Everything</small></h2>
+      </div>
+      <div class="title-bar" data-responsive-toggle="main-nav" data-hide-for="medium">
       <h2>
+        <span>
+      <button class="menu-icon" type="button" data-toggle="main-nav"></button></span>
+
+      <div class="title-bar-title">
         <%= link_to "Media Ranker", root_path %>
         <small>Ranking the Best of Everything</small>
-      </h2>
-      <div class="title-bar" data-responsive-toggle="main-nav" data-hide-for="medium">
-      <button class="menu-icon" type="button" data-toggle="main-nav"></button>
-      <div class="title-bar-title">Menu</div>
-  </div>
+      </h2></div>
+      </div>
 
   <div class="top-bar" id="main-nav">
     <div class="top-bar-left">
@@ -40,48 +45,10 @@
         <% else %>
           <li><%= link_to "Log In", login_path, class: "button" %></li>
         <% end %>
-
       </ul>
     </div>
   </div>
   </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<header class="panel">
-      <h2>
-        <%= link_to "Media Ranker", root_path %>
-        <small>Ranking the Best of Everything</small>
-      </h2>
-      <nav class="show-for-large-up">
-        <%= link_to "View top media", root_path, class: "button" %>
-        <%= link_to "View all media", works_path, class: "button" %>
-        <%= link_to "Add a new work", new_work_path, class: "button" %>
-        <%= link_to "View all users", users_path, class: "button" %>
-        <div class="float-right">
-        <% if session[:user_id] != nil %>
-            <%= link_to "Logged in as #{User.get_username(session[:user_id])}" , user_path(session[:user_id]), method: :get, class: "button"%>
-            <%= link_to "Log Out", logout_path, method: :delete, class: "button" %>
-        <% else %>
-            <%= link_to "Log In", login_path, class: "button" %>
-        <% end %>
-        </div>
-      </nav>
-      </nav>
-
-    </header>
 
     <main>
       <section class="flash">
