@@ -18,7 +18,14 @@
 
  */
 
-
+ /*   CSS GUIDE   */
+ /* MAIN */
+ /* NAVIGATION */
+ /* RESPONSIVE NAV */
+ /* HOME PAGE */
+ /* ALL WORKS */
+ /* Log In */
+ /* SMALL SCREEN */
 
  /* MAIN */
  main {
@@ -54,6 +61,7 @@
   color: #C70039;
   font-size: 1em;
 }
+
 /* NAVIGATION */
 body h2 a {
   color: #FF5722;
@@ -112,7 +120,6 @@ div.title-bar {
 }
 
 /* RESPONSIVE NAV */
-
 .top-bar, .top-bar ul {
   background-color: #B2DFDB;
 }
@@ -140,7 +147,6 @@ a:hover {
   color: #424242;
   font-weight: bold;
   padding: 0 2rem 0 2rem;
-
 }
 
 .media-spotlight p {
@@ -180,7 +186,6 @@ a:hover {
   font-weight: bold;
   border-bottom: 2px solid;
   border-bottom-color: #B2DFDB;
-
 }
 
 .top-ten small {
@@ -220,7 +225,6 @@ a:hover {
     max-height: 50px;
   }
   }
-
 
 /* * {
   border: solid black .5px;

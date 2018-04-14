@@ -22,11 +22,11 @@
       </tr>
     </thead>
     <tbody>
-        <% @work.upvotes.each do |item| %>
+      <% @work.upvotes.each do |item| %>
         <tr>
-        <td><%= link_to item.user.username, user_path(item.user.id) %></td>
-        <td><%= item.vote_date.to_formatted_s(:long) %></td>
-      </tr>
+          <td><%= link_to item.user.username, user_path(item.user.id) %></td>
+          <td><%= item.vote_date.to_formatted_s(:long) %></td>
+        </tr>
       <%end %>
     </tbody>
   </table>

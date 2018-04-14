@@ -28,16 +28,13 @@ class UpvotesController < ApplicationController
     redirect_back fallback_location: :works_path
   end
 
-
   def destroy
     @vote = Upvote.find_by(id: params[:id])
     @vote.destroy
   end
 
   private
-
   def upvote_params
     return params.require(:upvote).permit(:user_id, :work_id, :vote_date)
   end
-
 end
