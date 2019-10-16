@@ -1,0 +1,28 @@
+<h1> Show page for one work </h1> <br>
+
+    <h2><%= @work.title %> </h1><br>
+     <ul> 
+      <li><%=@work.creator%></li>
+      <li><%=@work.publication_year%></li>
+      <li><%=@work.description%></li>
+     </ul>
+
+<%@work.votes.count%><h2> Votes for this <%= @work.category%>
+
+<table>
+<tr>
+  <th><h3> User </h3></th>
+  <th><h3> Date </h3></th>
+</tr>
+<% @work.votes do each |vote|%>
+<tr>
+  <td><%= vote.user.name%></td>
+  <td><%= vote.created_by%></td>
+</tr>
+<%end%>
+</table>
+<%# Add in buttons to link : Back to media ranks, edit, upvote, delete %>
+<%# You Still have to add the votes for this work
+<%# you also have to add all users who voted for this page and their names %>
+<%# usernames, also the year and timestamp for when they voted for this work %> 
+
