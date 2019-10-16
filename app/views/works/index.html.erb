@@ -1,0 +1,12 @@
+<h1>Index page</h1>
+
+<section>
+  <% @works.each do |work| %>
+    <li>
+       <%= work.title  %> <br>
+    </li>
+      <li>
+       <%= work.category  %> <br>
+    </li>
+  <% end %>
+</section>

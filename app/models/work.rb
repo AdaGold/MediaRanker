@@ -7,4 +7,7 @@ class Work < ApplicationRecord
   validates :publication_year, presence: true
   validates :description, presence: true
 
+  def self.sort_by_category(category)
+    return self.where(category: category)
+  end
 end
