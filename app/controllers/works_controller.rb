@@ -5,7 +5,7 @@ class WorksController < ApplicationController
     @books = Work.sort_by_category("book")
     @albums = Work.sort_by_category("album")
   end
-
+  
   def show
     work_id = params[:id]
     @work = Work.find_by(id: work_id)
@@ -14,11 +14,11 @@ class WorksController < ApplicationController
       return
     end
   end
-
+  
   def new
     @work = Work.new
   end
-
+  
   def create
     @work = Work.new(work_params)
     if @work.save
@@ -29,15 +29,15 @@ class WorksController < ApplicationController
       return
     end
   end
-
+  
   def edit
-    @work = Work.find_by(id: params[:id])
+    @work = Work.find_by(id: params[:id].to_i)
     if @work.nil?
       redirect_to root_path
       return
     end
   end
-
+  
   def update
     @work = Work.find_by(id: params[:id])
     if @work.nil?
@@ -63,10 +63,9 @@ class WorksController < ApplicationController
       return
     end
   end
-
-
+  
+  
 private
-
   def work_params
     return params.require(:work).permit(:title,:category, :creator, :publication_year, :description)
   end
