@@ -3,13 +3,22 @@ class Work < ApplicationRecord
 
   validates :category, presence: true
   validates :title, presence: true
-  validates :creator, presence: true
-  validates :publication_year, presence: true
-  validates :description, presence: true
 
+
+  #The database can sort and limit for you how?
   def self.sort_by_category(category)
     categories = Work.where(category: category)
-    categories.sort_by { |work| -work.votes.length}
-    return categories.take(10) 
+    return categories.sort_by { |work| -work.votes.length}
+  end
+
+  def self.top_ten(category)
+    works = Work.sort_by_category(category)
+    return works.take(10)
+  end
+
+  def self.spotlight
+    all_works = work = Work.all
+    all_works.sort_by { |work| -work.votes.length}
+    return all_works.first
   end
 end
