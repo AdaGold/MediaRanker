@@ -13,11 +13,11 @@ class Work < ApplicationRecord
 
   def self.top_ten(category)
     works = Work.sort_by_category(category)
-    return works.take(10)
+    return works.take(10).compact
   end
 
   def self.spotlight
-    all_works = work = Work.all
+    all_works = Work.all
     all_works.sort_by { |work| -work.votes.length}
     return all_works.first
   end
