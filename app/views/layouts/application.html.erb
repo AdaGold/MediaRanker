@@ -9,11 +9,12 @@
   </head>
 
   <body>
-    <section class="flash">
+    <section class="alert__container">
       <% flash.each do |name, message| %>
         <div class="<%= name %>"><%= message %></div>
       <% end %>
     </section>
+
   <header class="app-header__header">
     <h1>
       <%=link_to "Media Ranker", root_path %>
