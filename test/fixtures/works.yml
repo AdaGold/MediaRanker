@@ -1,0 +1,13 @@
+valid_work_all_fields:
+  category: book
+  title: POODR
+  creator: metz
+  publication_year: 2012
+  description: It is a test description
+valid_work_title_category:
+  category: book
+  title: POODR
+invalid_work_noTitle:
+  category: album
+  title:
+
