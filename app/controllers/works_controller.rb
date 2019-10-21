@@ -63,6 +63,7 @@ class WorksController < ApplicationController
       return
     end
   end
+  
 
 private
   def work_params

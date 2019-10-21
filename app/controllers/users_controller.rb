@@ -1,17 +1,21 @@
 class UsersController < ApplicationController
 
-  def login_form
-    @user = User.new
-  end
 
   def index
     @users = User.all
   end
 
+  def show
+    user_id = params[:id]
+    @user = User.find_by(id: user_id)
+    if @user.nil?
+      redirect_to root_path
+      return
+    end
+  end
+
   def login
-
     username = params[:user][:username]
-
     found_user = User.find_by(name: username)
 
     if found_user
@@ -24,11 +28,13 @@ class UsersController < ApplicationController
       new_user.save
       # TODO: What happens if saving fails?
       session[:user_id] = new_user.id
-      flash[:message] = "Created a new user. Welcome!"
+      flash[:message] = "Created a new user Welcome!"
     end
-  
     return redirect_to root_path
-     
+  end
+
+  def login_form
+    @user = User.new
   end
 
   def logout
@@ -37,12 +43,4 @@ class UsersController < ApplicationController
     flash[:message] = "You have logged out successfully."
     return redirect_to root_path
   end
-
-  # def current
-  #   @user = User.find_by(id: session[:user_id])
-  #   if @user.nil?
-  #     head :not_found
-  #     return
-  #   end 
-  # end
 end

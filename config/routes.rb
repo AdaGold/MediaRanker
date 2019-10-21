@@ -2,8 +2,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homepages#index"
   get "/homepages", to: "homepages#index"
-  resources :works
-  resources :users
+  
+  resources :works do
+    resources :votes
+  end
+  # resources :users
+  # #   resources :votes
+  # # end
+
+  # get "/upvote", to: "votes#upvote", as: "upvote"
+  # post "/upvote", to: "users#upvote"
+
 #login routes
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"

@@ -1,6 +1,7 @@
 <main>
-    <h2>User Summary: <a href="/users/285">yo</a></h2>
-<p>Joined site Apr 22, 2019</p>
+
+  <h2>User Summary: <%=@user.name%></h2>
+  <p>Joined site:<%=@user.created_at%></p>
 
 <section class="user-votes__container">
   <h3 class="user-votes__header">Votes</h3>
@@ -17,6 +18,7 @@
     <tbody>
         <tr>
           <td><a href="/works/484">POODR: how to be a bike mechanic for Rubyists</a></td>
+          <=% link_to user_votes %>
           <td>Dr. Motorcycle</td>
           <td>2012</td>
           <td>Book</td>
@@ -28,13 +30,4 @@
 
 <a class="btn btn-secondary" href="/users">See all Users</a>
 <a class="btn btn-primary" href="/">Back to Media List</a>
-
   </main>
-
-  <h1>About the Current User...</h1>
-
-<% if @user.nil? %>
-  <p>I am not logged in!</p>
-<% else %>
-  <p>I'm logged in! My name is: <%= @user.username %></p>
-<% end %>

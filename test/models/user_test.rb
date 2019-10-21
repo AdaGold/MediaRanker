@@ -14,3 +14,16 @@ describe User do
     end
   end
 end
+# describe "relationships" do
+#   it "can have vote for many works" do
+#     # Arrange
+#     new_driver.save
+#     driver = Driver.first
+    
+#     # Assert
+#     expect(driver.trips.count).must_be :>=, 0
+#     driver.trips.each do |trip|
+#       expect(trip).must_be_instance_of Trip
+#     end
+# #   end
+# end
