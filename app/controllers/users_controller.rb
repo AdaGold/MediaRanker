@@ -4,8 +4,13 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @users = User.all
+  end
+
   def login
-    username = params[:user][:name]
+
+    username = params[:user][:username]
 
     found_user = User.find_by(name: username)
 
@@ -21,7 +26,9 @@ class UsersController < ApplicationController
       session[:user_id] = new_user.id
       flash[:message] = "Created a new user. Welcome!"
     end
+  
     return redirect_to root_path
+     
   end
 
   def logout

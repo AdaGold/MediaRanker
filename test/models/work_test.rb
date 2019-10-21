@@ -12,15 +12,9 @@ describe Work do
 
     it "is invalid if there is no title" do
       work = works(:invalid_work_noTitle)
-
       is_valid = work.valid?
-
       refute( is_valid )
     end
   end
-
-
-
-
 end
  

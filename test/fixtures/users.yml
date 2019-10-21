@@ -1,0 +1,4 @@
+valid_user_all_fields:
+  name: testuser
+invalid_user_noName:
+  name:
