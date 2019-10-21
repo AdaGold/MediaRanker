@@ -5,15 +5,11 @@ Rails.application.routes.draw do
   resources :users
   
   resources :works do
-    resources :votes
+    post "/upvote", to: "votes#upvote", as: "upvote"
   end
-
-  # resources :users
-  # #   resources :votes
-  # # end
-
-  # get "/votes/:work_id/upvote", to: "votes#upvote", as: "upvote"
-  # post "/upvote", to: "users#upvote"
+ resources :votes do
+  get "/upvote/users", to: "votes#upvote", as: "upvote"
+ end 
 
 #login routes
   get "/login", to: "users#login_form", as: "login"
