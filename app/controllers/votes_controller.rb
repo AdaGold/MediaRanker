@@ -18,7 +18,7 @@ class VotesController < ApplicationController
     @votes = Votes.where("work_id = ?", params[:work_id))
   end
 
-  def upvote
+  def create
     #if the current user is logged in 
     @user = User.find_by(id: session[:user_id])
     if @user

@@ -71,6 +71,7 @@
             <td><%=movie.creator%></td>
             <td><%=movie.publication_year%></td>
             <td><a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/476/upvote">Upvote</a></td>
+            <%=link_to movie.title, work_path(id: movie.id)%>
           </tr>
          <%end%>
       </tbody>
