@@ -4,7 +4,7 @@ class VotesController < ApplicationController
   def current
     @user = User.find_by(id: session[:user_id])
     if @user.nil?
-      head :not_found
+      flash[:message] = "User not found"
       return
     end 
   end
@@ -13,8 +13,6 @@ class VotesController < ApplicationController
   #   @votes = Vote.all
   #   #To show all the votes a user has made 
   #   #Get the user and look for all the times that user and work Id show up 
-  
-  
   
   #   # @users = User.works.all
   #   # @works = Works.users.all

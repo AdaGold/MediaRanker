@@ -1,7 +1,7 @@
 <main>
 
   <h2>User Summary: <%=@user.name%></h2>
-  <p>Joined site:<%=@user.created_at%></p>
+  <p>Joined site: <%= @user.created_at%></p>
 
 <section class="user-votes__container">
   <h3 class="user-votes__header">Votes</h3>
@@ -16,14 +16,14 @@
       </tr>
     </thead>
     <tbody>
+     <% @user.votes.each do |vote|%>
         <tr>
-          <td><a href="/works/484">POODR: how to be a bike mechanic for Rubyists</a></td>
-          <=% link_to user_votes %>
-          <td>Dr. Motorcycle</td>
-          <td>2012</td>
-          <td>Book</td>
-          <td>Oct 16, 2019</td>
+          <td><%= link_to vote.work.title, work_path(vote.work)%></td>
+          <td><%=vote.work.created_at%></td>
+          <td>
+          </td>
         </tr>
+         <%end%>
     </tbody>
   </table>
 </section>

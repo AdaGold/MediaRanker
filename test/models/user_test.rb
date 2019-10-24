@@ -13,17 +13,20 @@ describe User do
       refute( is_valid )
     end
   end
+
+  describe "relationships" do
+    it "can have vote for many works" do
+      # Arrange
+      #Create a user
+      user = users(:valid_user_all_fields)
+      work_one = Work.create!(title: "earth", category: "something")
+      work_two = Work.create!(title: "earth2", category: "something")
+      vote1 = Vote.create!(user: user, work: work_one)
+      vote2 = Vote.create!(user: user, work: work_two)
+      #Act/Assert
+      expect(user.votes.length).must_equal 2
+      expect(user.votes).must_include vote1
+      expect(user.votes).must_include vote2
+    end
+  end
 end
-# describe "relationships" do
-#   it "can have vote for many works" do
-#     # Arrange
-#     new_driver.save
-#     driver = Driver.first
-    
-#     # Assert
-#     expect(driver.trips.count).must_be :>=, 0
-#     driver.trips.each do |trip|
-#       expect(trip).must_be_instance_of Trip
-#     end
-# #   end
-# end
